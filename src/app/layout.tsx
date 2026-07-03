@@ -16,7 +16,7 @@ const dmMono = DM_Mono({
   display: 'swap',
 });
 
-const SITE_URL = 'https://steveweed.dev';
+const SITE_URL = 'https://www.swbuild.dev';
 const DESCRIPTION =
   'Steve Weed — builder and full-stack developer. Founder of KTXZ Enterprises and creator of Foresight, an engine that forces domain foresight before you build, then verifies what got built against it.';
 

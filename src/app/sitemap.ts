@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 
-const SITE_URL = 'https://steveweed.dev';
+const SITE_URL = 'https://www.swbuild.dev';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
