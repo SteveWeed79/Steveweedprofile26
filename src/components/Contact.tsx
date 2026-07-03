@@ -1,6 +1,7 @@
 const links = [
-  { label: 'GitHub',              url: 'https://github.com/steveweed79' },
-  { label: 'ktxzenterprises.com', url: 'https://ktxzenterprises.com' },
+  { label: 'Email',    url: 'mailto:ktxzenterprises@gmail.com' },
+  { label: 'GitHub',   url: 'https://github.com/steveweed79' },
+  { label: 'KTXZ Shop', url: 'https://ktxzenterprises.com' },
 ];
 
 export default function Contact() {
@@ -11,19 +12,26 @@ export default function Contact() {
         Let&apos;s build<br />something.
       </h2>
       <div className="contact__accent" />
+      <p className="contact__sub">
+        Have a product to ship, a store to run, or tooling to tame? I&apos;m
+        open to focused, high-craft work. The fastest way to reach me is email.
+      </p>
       <div className="contact__links">
-        {links.map((l) => (
-          <a
-            key={l.label}
-            href={l.url}
-            className="contact-btn"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {l.label}
-            <span className="contact-btn__arrow">↗</span>
-          </a>
-        ))}
+        {links.map((l) => {
+          const external = l.url.startsWith('http');
+          return (
+            <a
+              key={l.label}
+              href={l.url}
+              className="contact-btn"
+              target={external ? '_blank' : undefined}
+              rel={external ? 'noopener noreferrer' : undefined}
+            >
+              {l.label}
+              <span className="contact-btn__arrow" aria-hidden="true">↗</span>
+            </a>
+          );
+        })}
       </div>
     </section>
   );

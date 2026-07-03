@@ -1,3 +1,9 @@
+const stats = [
+  { num: '2026', label: 'Active' },
+  { num: '2', label: 'Shipping' },
+  { num: 'Full-Stack', label: 'Scope' },
+];
+
 export default function Hero() {
   return (
     <section className="hero">
@@ -10,25 +16,20 @@ export default function Hero() {
           Builder <span className="hero__slash">/</span> Developer
         </p>
         <p className="hero__tagline">
-          Designing and building digital products that are fast,
-          focused, and built to last.
+          I design and build digital products that are fast, focused, and
+          built to last — and tooling that keeps them honest while they grow.
         </p>
 
         <div className="hero__stats">
-          <div className="hero__stat">
-            <span className="hero__stat-num">2026</span>
-            <span className="hero__stat-label">Active</span>
-          </div>
-          <span className="hero__stat-sep" />
-          <div className="hero__stat">
-            <span className="hero__stat-num">3+</span>
-            <span className="hero__stat-label">Projects</span>
-          </div>
-          <span className="hero__stat-sep" />
-          <div className="hero__stat">
-            <span className="hero__stat-num">Full-Stack</span>
-            <span className="hero__stat-label">Scope</span>
-          </div>
+          {stats.map((s, i) => (
+            <div key={s.label} style={{ display: 'contents' }}>
+              {i > 0 && <span className="hero__stat-sep" />}
+              <div className="hero__stat">
+                <span className="hero__stat-num">{s.num}</span>
+                <span className="hero__stat-label">{s.label}</span>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 

@@ -1,27 +1,33 @@
-const projects = [
+import Link from 'next/link';
+
+interface Project {
+  num: string;
+  name: string;
+  desc: string;
+  href: string;      // internal case-study route
+  domain: string;
+  status: 'Live' | 'Building';
+  tags: string[];
+}
+
+const projects: Project[] = [
   {
     num: '01',
-    name: 'KTXZ Enterprises',
-    desc: 'Full-service enterprise solutions — strategy, development, and digital infrastructure.',
-    url: 'https://ktxzenterprises.com',
+    name: 'KTXZ Shop',
+    desc: 'A multi-game trading-card marketplace — customer storefront (search, cart, Stripe checkout, returns) plus a full admin operations platform for catalog, pricing, inventory, and fulfillment.',
+    href: '/ktxz',
     domain: 'ktxzenterprises.com',
-    status: 'Live' as const,
+    status: 'Live',
+    tags: ['Next.js 16', 'TypeScript', 'MongoDB', 'Stripe', '1,800+ tests'],
   },
   {
     num: '02',
-    name: 'Project Two',
-    desc: 'Coming soon — description and link will be added.',
-    url: '#',
-    domain: 'TBD',
-    status: 'Soon' as const,
-  },
-  {
-    num: '03',
-    name: 'Project Three',
-    desc: 'Coming soon — description and link will be added.',
-    url: '#',
-    domain: 'TBD',
-    status: 'Soon' as const,
+    name: 'Foresight',
+    desc: 'A standalone, tool-agnostic engine that forces domain foresight before you build a feature, then verifies what actually got built against it — so the expensive discoveries surface in week one, not month three.',
+    href: '/foresight',
+    domain: 'engine · CLI · PR gate',
+    status: 'Building',
+    tags: ['Node', 'Reasoning verifier', 'Claude API', 'Dev tooling'],
   },
 ];
 
@@ -31,17 +37,16 @@ export default function Projects() {
       <p className="section__label">Work</p>
       <div className="projects__list">
         {projects.map((p) => (
-          <a
-            key={p.num}
-            href={p.url}
-            className="project-item"
-            target={p.url !== '#' ? '_blank' : undefined}
-            rel={p.url !== '#' ? 'noopener noreferrer' : undefined}
-          >
+          <Link key={p.num} href={p.href} className="project-item project-item--link" data-reveal>
             <span className="project-item__num">{p.num}</span>
             <div className="project-item__body">
               <span className="project-item__name">{p.name}</span>
               <span className="project-item__desc">{p.desc}</span>
+              <div className="project-item__tags">
+                {p.tags.map((t) => (
+                  <span key={t} className="project-item__tag">{t}</span>
+                ))}
+              </div>
             </div>
             <div className="project-item__meta">
               <span className={`project-item__status project-item__status--${p.status.toLowerCase()}`}>
@@ -49,8 +54,8 @@ export default function Projects() {
               </span>
               <span className="project-item__domain">{p.domain}</span>
             </div>
-            <span className="project-item__arrow">↗</span>
-          </a>
+            <span className="project-item__arrow" aria-hidden="true">↗</span>
+          </Link>
         ))}
       </div>
     </section>
