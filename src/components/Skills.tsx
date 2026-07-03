@@ -1,7 +1,10 @@
 const stack = [
-  { category: 'Frontend',  items: ['React', 'Next.js', 'TypeScript', 'CSS'] },
-  { category: 'Runtime',   items: ['Node.js'] },
-  { category: 'Tooling',   items: ['Git', 'Vercel'] },
+  { category: 'Frontend',   items: ['React', 'Next.js', 'TypeScript', 'Tailwind', 'CSS'] },
+  { category: 'Backend',    items: ['Node.js', 'MongoDB', 'Mongoose', 'Zod', 'REST'] },
+  { category: 'Payments',   items: ['Stripe', 'Webhooks', 'Idempotency'] },
+  { category: 'Infra',      items: ['Vercel', 'AWS S3 / CloudFront', 'Upstash Redis', 'Cron'] },
+  { category: 'Quality',    items: ['Vitest', 'GitHub Actions', 'Sentry', 'OpenTelemetry'] },
+  { category: 'AI / Tools', items: ['Claude API', 'Playwright', 'Git'] },
 ];
 
 export default function Skills() {
@@ -10,7 +13,7 @@ export default function Skills() {
       <p className="section__label">Stack</p>
       <div className="skills__table">
         {stack.map((row) => (
-          <div key={row.category} className="skills__row">
+          <div key={row.category} className="skills__row" data-reveal>
             <span className="skills__category">{row.category}</span>
             <div className="skills__items">
               {row.items.map((item) => (

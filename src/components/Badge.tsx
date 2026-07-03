@@ -1,26 +1,18 @@
 interface BadgeProps {
-  variant?: 'dark' | 'light';
   label?: string;
   href?: string;
-  hero?: boolean;
 }
 
+/**
+ * The SW/ brand mark. Colours are token-driven, so a single component adapts
+ * to both the dark and light themes automatically.
+ */
 export default function Badge({
-  variant = 'dark',
   label = 'Build',
   href = 'https://github.com/steveweed79',
-  hero = false,
 }: BadgeProps) {
-  const className = [
-    'swb',
-    `swb--${variant}`,
-    hero ? 'swb--hero' : '',
-  ]
-    .filter(Boolean)
-    .join(' ');
-
   return (
-    <a href={href} className={className} target="_blank" rel="noopener noreferrer">
+    <a className="swb" href={href} target="_blank" rel="noopener noreferrer">
       <span className="swb__mark">
         <span className="swb__sw">SW</span>
         <span className="swb__slash">/</span>
