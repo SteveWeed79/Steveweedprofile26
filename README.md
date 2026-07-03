@@ -1,4 +1,4 @@
-# steveweed.dev
+# swbuild.dev
 
 Personal site of **Steve Weed** — builder & full-stack developer. A fast,
 static-first Next.js site with two in-depth project case studies.
