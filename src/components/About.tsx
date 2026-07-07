@@ -1,7 +1,7 @@
 const facts = [
   { label: 'Focus', value: 'Full-stack product & developer tooling' },
   { label: 'Core stack', value: 'Next.js · TypeScript · Node · MongoDB' },
-  { label: 'Currently', value: 'Building Foresight; running KTXZ Shop' },
+  { label: 'Currently', value: 'Building Forespec; running KTXZ Shop' },
   { label: 'Based', value: 'United States' },
 ];
 
@@ -27,7 +27,7 @@ export default function About() {
               marketplace with a full customer storefront and an admin
               operations platform behind it — Stripe checkout, inventory
               reservation, multi-provider pricing, and a test suite in the
-              thousands. And I&apos;m building <strong>Foresight</strong>, an
+              thousands. And I&apos;m building <strong>Forespec</strong>, an
               engine that forces domain foresight before you build a feature,
               then verifies what actually got built against it.
             </p>

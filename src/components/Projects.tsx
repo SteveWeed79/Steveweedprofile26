@@ -22,9 +22,9 @@ const projects: Project[] = [
   },
   {
     num: '02',
-    name: 'Foresight',
+    name: 'Forespec',
     desc: 'A standalone, tool-agnostic engine that forces domain foresight before you build a feature, then verifies what actually got built against it — so the expensive discoveries surface in week one, not month three.',
-    href: '/foresight',
+    href: '/forespec',
     domain: 'engine · CLI · PR gate',
     status: 'Building',
     tags: ['Node', 'Reasoning verifier', 'Claude API', 'Dev tooling'],
