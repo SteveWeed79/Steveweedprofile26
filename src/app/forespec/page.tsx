@@ -23,6 +23,7 @@ const meta = [
   { label: 'Role', value: 'Solo — design + engineering' },
   { label: 'Engine', value: 'Node · ESM · adapter-based' },
   { label: 'Surface', value: 'CLI · verifier · PR gate' },
+  { label: 'Distribution', value: 'npm · GitHub Action' },
   { label: 'License', value: 'BUSL-1.1 · source-available' },
 ];
 
@@ -151,6 +152,9 @@ export default function ForespecPage() {
           <div className="fs-actions">
             <a className="contact-btn" href="https://github.com/SteveWeed79/forespec" target="_blank" rel="noopener noreferrer">
               View source <span className="contact-btn__arrow" aria-hidden="true">↗</span>
+            </a>
+            <a className="contact-btn" href="https://www.npmjs.com/package/forespec" target="_blank" rel="noopener noreferrer">
+              View on npm <span className="contact-btn__arrow" aria-hidden="true">↗</span>
             </a>
             <a className="contact-btn" href="#architecture">
               Jump to architecture <span className="contact-btn__arrow" aria-hidden="true">↓</span>
