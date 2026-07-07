@@ -197,8 +197,8 @@ export default function KtxzPage() {
             <a className="contact-btn" href="https://ktxzenterprises.com" target="_blank" rel="noopener noreferrer">
               Visit KTXZ Shop <span className="contact-btn__arrow" aria-hidden="true">↗</span>
             </a>
-            <Link className="contact-btn" href="/foresight">
-              Next: Foresight <span className="contact-btn__arrow" aria-hidden="true">→</span>
+            <Link className="contact-btn" href="/forespec">
+              Next: Forespec <span className="contact-btn__arrow" aria-hidden="true">→</span>
             </Link>
           </div>
         </section>

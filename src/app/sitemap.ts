@@ -7,6 +7,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: `${SITE_URL}/`, lastModified: now, changeFrequency: 'monthly', priority: 1 },
     { url: `${SITE_URL}/ktxz`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${SITE_URL}/foresight`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${SITE_URL}/forespec`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
   ];
 }

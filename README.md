@@ -8,8 +8,8 @@ static-first Next.js site with two in-depth project case studies.
 - **Home** — hero, about, work, stack, and contact, with scroll-reveal motion
   and scroll-spy navigation.
 - **Case studies** — dedicated pages for [`/ktxz`](src/app/ktxz) (KTXZ Shop, a
-  multi-game trading-card marketplace) and [`/foresight`](src/app/foresight)
-  (Foresight, a domain-foresight verification engine).
+  multi-game trading-card marketplace) and [`/forespec`](src/app/forespec)
+  (Forespec, a domain-foresight verification engine).
 - **Light & dark themes** — system-aware with a no-flash toggle, persisted to
   `localStorage`.
 - **Accessible** — visible focus states, a skip link, WCAG-minded contrast, and
@@ -45,7 +45,7 @@ src/
 │   ├── opengraph-image.tsx # generated social share image
 │   ├── sitemap.ts / robots.ts
 │   ├── ktxz/page.tsx       # KTXZ Shop case study
-│   └── foresight/page.tsx  # Foresight case study
+│   └── forespec/page.tsx  # Forespec case study
 └── components/             # Nav, Hero, About, Projects, Skills, Contact,
                             # Footer, Badge, ThemeToggle, ScrollFX, CaseHeader
 ```

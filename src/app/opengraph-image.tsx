@@ -51,7 +51,7 @@ export default function OpengraphImage() {
         <div style={{ display: 'flex', fontSize: 24, color: '#86868f', gap: 20 }}>
           <span>KTXZ Shop</span>
           <span style={{ color: '#47c8ff' }}>·</span>
-          <span>Foresight</span>
+          <span>Forespec</span>
           <span style={{ color: '#47c8ff' }}>·</span>
           <span>swbuild.dev</span>
         </div>

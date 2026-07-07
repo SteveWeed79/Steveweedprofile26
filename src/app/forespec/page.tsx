@@ -5,24 +5,25 @@ import Footer from '@/components/Footer';
 import ScrollFX from '@/components/ScrollFX';
 
 export const metadata: Metadata = {
-  title: 'Foresight — foresight before you build, verified after',
+  title: 'Forespec — foresight before you build, verified after',
   description:
-    'Foresight is a standalone, tool-agnostic engine that forces domain foresight before you build a feature, then verifies what actually got built against it. Case study: architecture, the reasoning verifier, the validation bar, and the build order.',
-  alternates: { canonical: '/foresight' },
+    'Forespec is a standalone, tool-agnostic engine that forces domain foresight before you build a feature, then verifies what actually got built against it. Case study: architecture, the reasoning verifier, the validation bar, and the build order.',
+  alternates: { canonical: '/forespec' },
   openGraph: {
-    title: 'Foresight — a verification engine for the build loop',
+    title: 'Forespec — a verification engine for the build loop',
     description:
       'Forces domain foresight before a feature, then verifies what got built against it — validated to 0 false-greens on 52 critical bad cases.',
-    url: '/foresight',
+    url: '/forespec',
     type: 'article',
   },
 };
 
 const meta = [
-  { label: 'Status', value: 'Early build', accent: true },
+  { label: 'Status', value: 'Early build · v0.1.0', accent: true },
   { label: 'Role', value: 'Solo — design + engineering' },
   { label: 'Engine', value: 'Node · ESM · adapter-based' },
   { label: 'Surface', value: 'CLI · verifier · PR gate' },
+  { label: 'License', value: 'BUSL-1.1 · source-available' },
 ];
 
 const components = [
@@ -56,8 +57,8 @@ const components = [
 const stats = [
   { num: '0', label: 'False-greens across 52 critical bad cases' },
   { num: '≤2.9%', label: 'Rule-of-three 95% upper bound on the miss rate' },
-  { num: '3', label: 'Archetypes composed from one shared library' },
-  { num: '9', label: 'Reusable checkpoint domains, authored once' },
+  { num: '5', label: 'Archetypes composed from one shared library' },
+  { num: '11', label: 'Checkpoint domains in the shared library, authored once' },
 ];
 
 const archetypes = [
@@ -70,6 +71,16 @@ const archetypes = [
     name: 'saas',
     desc: '26 checkpoints, all but 3 reused from the library — only tenancy isolation, entitlement integrity, and subscription lifecycle are SaaS-specific.',
     badge: '3 new · 23 reused',
+  },
+  {
+    name: 'ai-app',
+    desc: '12 checkpoints, 5 AI-specific — prompt injection, output handling, tool-use safety, cost controls, and the data boundary — plus 7 reused from the library.',
+    badge: '5 new · 7 reused',
+  },
+  {
+    name: 'baas',
+    desc: '10 checkpoints for Supabase / Firebase backends, 3 BaaS-specific — RLS enforced, the client trust boundary, and privileged-key exposure — plus 7 reused.',
+    badge: '3 new · 7 reused',
   },
   {
     name: 'portfolio',
@@ -98,17 +109,17 @@ const principles = [
 ];
 
 const phases = [
-  { n: '0', t: 'Walking skeleton — the pipeline end-to-end on one real checkpoint', s: 'Now' },
-  { n: '1', t: 'Full backbone verifier + deterministic assertion layer', s: 'Now' },
-  { n: '2', t: 'Calibration store + passive learning (the spine)', s: 'Planned' },
-  { n: '3', t: 'Design dimension — computed, defensible signals only', s: 'Planned' },
-  { n: '4', t: 'The foresight ritual — plan-side, not just verify-side', s: 'Planned' },
-  { n: '5', t: 'Proficiency layer — person-aware explanation depth', s: 'Planned' },
-  { n: '6', t: 'Deferred experiments + a second archetype', s: 'Planned' },
+  { n: '0', t: 'Walking skeleton — the pipeline end-to-end on one real checkpoint', s: 'Shipped' },
+  { n: '1', t: 'Full backbone verifier + deterministic assertion layer', s: 'Shipped' },
+  { n: '2', t: 'Calibration store + passive learning (the spine)', s: 'Shipped' },
+  { n: '3', t: 'Design dimension — computed, defensible signals only', s: 'Shipped' },
+  { n: '4', t: 'The foresight ritual — plan-side, not just verify-side', s: 'Shipped' },
+  { n: '5', t: 'Proficiency layer — person-aware explanation depth', s: 'Shipped' },
+  { n: '6', t: 'Deferred model-scored design experiments — earned against real data or cut', s: 'Planned' },
   { n: '7', t: 'Reach beyond one machine — multi-user, wall intact', s: 'Planned' },
 ];
 
-export default function ForesightPage() {
+export default function ForespecPage() {
   return (
     <>
       <CaseHeader />
@@ -119,7 +130,7 @@ export default function ForesightPage() {
 
         <section className="fs-hero">
           <p className="fs-eyebrow">Case Study · Developer Tooling</p>
-          <h1 className="fs-title">Foresight</h1>
+          <h1 className="fs-title">Forespec</h1>
           <p className="fs-lede">
             A standalone, tool-agnostic engine that forces domain{' '}
             <strong>foresight before</strong> you build a feature, then{' '}
@@ -138,7 +149,7 @@ export default function ForesightPage() {
           </div>
 
           <div className="fs-actions">
-            <a className="contact-btn" href="https://github.com/steveweed79" target="_blank" rel="noopener noreferrer">
+            <a className="contact-btn" href="https://github.com/SteveWeed79/forespec" target="_blank" rel="noopener noreferrer">
               View source <span className="contact-btn__arrow" aria-hidden="true">↗</span>
             </a>
             <a className="contact-btn" href="#architecture">
@@ -166,7 +177,7 @@ export default function ForesightPage() {
             <p>
               Now you&apos;re doing surgery on a live payment flow to retrofit
               something that would have been <strong>trivial to design in on day
-              one</strong>. Foresight&apos;s job isn&apos;t more horsepower — it&apos;s
+              one</strong>. Forespec&apos;s job isn&apos;t more horsepower — it&apos;s
               making that interrogation forced, structured, and live.
             </p>
           </div>
@@ -174,13 +185,13 @@ export default function ForesightPage() {
 
         <section className="fs-section" data-reveal>
           <p className="fs-section__label">The loop it keeps live</p>
-          <h2 className="fs-h2">Plan → build → verify → correct — and the foresight stays alive the whole way.</h2>
+          <h2 className="fs-h2">Point → build → verify → remember — and the foresight stays alive the whole way.</h2>
           <div className="fs-loop">
             {[
-              { n: '01', name: 'Plan', desc: 'Interrogate the feature and emit a pre-build spec: the questions to decide first + acceptance criteria.' },
-              { n: '02', name: 'Build', desc: 'Hand the ordered, gotcha-aware plan straight to the agent — dangerous, foundational pieces first.' },
-              { n: '03', name: 'Verify', desc: 'Read the real repo and grade the same checkpoints. What’s missing, what drifted, what’s unsafe to build on.' },
-              { n: '04', name: 'Correct', desc: 'Warn before you build on a missing foundation. New gotchas feed back into the pattern library.' },
+              { n: '01', name: 'Point', desc: 'Interrogate the domain and emit a gotcha-aware spec — the decide-first questions + acceptance criteria, most-foundational pieces first.' },
+              { n: '02', name: 'Build', desc: 'You — or your AI coder — build against that spec, dangerous and foundational pieces first.' },
+              { n: '03', name: 'Verify', desc: 'Grade what actually got built, flag what’s unsafe, and name the required backbone you haven’t reached yet.' },
+              { n: '04', name: 'Remember', desc: 'Every run writes to a local calibration store behind the pattern/instance wall — so the next run shows what moved and catches a regression before it compounds.' },
             ].map((s) => (
               <div key={s.n} className="fs-loop__step">
                 <span className="fs-loop__n">{s.n}</span>
@@ -246,7 +257,7 @@ export default function ForesightPage() {
           <p className="fs-p" style={{ marginTop: '26px' }}>
             Checkpoints are authored <strong>once</strong> in the library and
             composed per archetype. A fix to a shared checkpoint lifts every
-            archetype at once, and archetype #2 reuses instead of copies. The
+            archetype at once, and each new archetype reuses instead of copies. The
             portfolio archetype is the proof: a whole standard with nothing new to
             author.
           </p>
@@ -269,7 +280,7 @@ export default function ForesightPage() {
           <h2 className="fs-h2">Each phase ships real and stands alone. The pearl gets proven before the shell gets built.</h2>
           <div className="fs-phases">
             {phases.map((p) => {
-              const mod = p.s === 'Now' ? ' fs-phase--now' : '';
+              const mod = p.s === 'Shipped' ? ' fs-phase--now' : '';
               return (
                 <div key={p.n} className={`fs-phase${mod}`}>
                   <span className="fs-phase__n">P{p.n}</span>
@@ -284,7 +295,7 @@ export default function ForesightPage() {
         <section className="fs-cta">
           <h2 className="fs-cta__title">Build the architecture big.<br />Ship the v1 small.</h2>
           <div className="fs-cta__links">
-            <a className="contact-btn" href="https://github.com/steveweed79" target="_blank" rel="noopener noreferrer">
+            <a className="contact-btn" href="https://github.com/SteveWeed79/forespec" target="_blank" rel="noopener noreferrer">
               View source <span className="contact-btn__arrow" aria-hidden="true">↗</span>
             </a>
             <Link className="contact-btn" href="/ktxz">

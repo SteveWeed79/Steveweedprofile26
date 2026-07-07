@@ -18,7 +18,7 @@ const dmMono = DM_Mono({
 
 const SITE_URL = 'https://www.swbuild.dev';
 const DESCRIPTION =
-  'Steve Weed — builder and full-stack developer. Founder of KTXZ Enterprises and creator of Foresight, an engine that forces domain foresight before you build, then verifies what got built against it.';
+  'Steve Weed — builder and full-stack developer. Founder of KTXZ Enterprises and creator of Forespec, an engine that forces domain foresight before you build, then verifies what got built against it.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     'Steve Weed',
     'full-stack developer',
     'KTXZ Enterprises',
-    'Foresight',
+    'Forespec',
     'Next.js',
     'TypeScript',
     'AI tooling',
