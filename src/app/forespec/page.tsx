@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 };
 
 const meta = [
-  { label: 'Status', value: 'Early build · v0.1.0', accent: true },
+  { label: 'Status', value: 'Early build · v0.1.3', accent: true },
   { label: 'Role', value: 'Solo — design + engineering' },
   { label: 'Engine', value: 'Node · ESM · adapter-based' },
   { label: 'Surface', value: 'CLI · verifier · PR gate' },
@@ -246,6 +246,14 @@ export default function ForespecPage() {
             <em> not</em> being a grader to trust. &ldquo;Is the verifier
             trustworthy?&rdquo; becomes a number, not a hope.
           </p>
+          <p className="fs-p">
+            You don&apos;t have to take that on faith. <code>forespec demo</code>{' '}
+            runs a zero-setup, no-API-key walkthrough of a graded run in about 20
+            seconds — rendered through the <em>same</em> code path as a live{' '}
+            <code>verify</code>, against a bundled vulnerable-checkout example, so
+            the demo can never drift from real output. The full CLI installs in
+            one command: <code>npx forespec</code>.
+          </p>
         </section>
 
         <section className="fs-section" data-reveal>
@@ -302,8 +310,8 @@ export default function ForespecPage() {
             <a className="contact-btn" href="https://github.com/SteveWeed79/forespec" target="_blank" rel="noopener noreferrer">
               View source <span className="contact-btn__arrow" aria-hidden="true">↗</span>
             </a>
-            <Link className="contact-btn" href="/ktxz">
-              Next: KTXZ Shop <span className="contact-btn__arrow" aria-hidden="true">→</span>
+            <Link className="contact-btn" href="/palctl">
+              Next: palctl <span className="contact-btn__arrow" aria-hidden="true">→</span>
             </Link>
           </div>
         </section>

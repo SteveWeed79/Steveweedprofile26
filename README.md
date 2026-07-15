@@ -1,15 +1,17 @@
 # swbuild.dev
 
 Personal site of **Steve Weed** — builder & full-stack developer. A fast,
-static-first Next.js site with two in-depth project case studies.
+static-first Next.js site with three in-depth project case studies.
 
 ## Highlights
 
 - **Home** — hero, about, work, stack, and contact, with scroll-reveal motion
   and scroll-spy navigation.
 - **Case studies** — dedicated pages for [`/ktxz`](src/app/ktxz) (KTXZ Shop, a
-  multi-game trading-card marketplace) and [`/forespec`](src/app/forespec)
-  (Forespec, a domain-foresight verification engine).
+  multi-game trading-card marketplace), [`/forespec`](src/app/forespec)
+  (Forespec, a domain-foresight verification engine), and
+  [`/palctl`](src/app/palctl) (palctl, a REST-native Palworld dedicated-server
+  control plane).
 - **Light & dark themes** — system-aware with a no-flash toggle, persisted to
   `localStorage`.
 - **Accessible** — visible focus states, a skip link, WCAG-minded contrast, and
@@ -45,7 +47,8 @@ src/
 │   ├── opengraph-image.tsx # generated social share image
 │   ├── sitemap.ts / robots.ts
 │   ├── ktxz/page.tsx       # KTXZ Shop case study
-│   └── forespec/page.tsx  # Forespec case study
+│   ├── forespec/page.tsx   # Forespec case study
+│   └── palctl/page.tsx     # palctl case study
 └── components/             # Nav, Hero, About, Projects, Skills, Contact,
                             # Footer, Badge, ThemeToggle, ScrollFX, CaseHeader
 ```

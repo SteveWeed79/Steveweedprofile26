@@ -1,9 +1,10 @@
 const stack = [
   { category: 'Frontend',   items: ['React', 'Next.js', 'TypeScript', 'Tailwind', 'CSS'] },
   { category: 'Backend',    items: ['Node.js', 'MongoDB', 'Mongoose', 'Zod', 'REST'] },
+  { category: 'Systems',    items: ['Python', 'asyncio', 'PySide6', 'SQLite', 'systemd / Win services'] },
   { category: 'Payments',   items: ['Stripe', 'Webhooks', 'Idempotency'] },
   { category: 'Infra',      items: ['Vercel', 'AWS S3 / CloudFront', 'Upstash Redis', 'Cron'] },
-  { category: 'Quality',    items: ['Vitest', 'GitHub Actions', 'Sentry', 'OpenTelemetry'] },
+  { category: 'Quality',    items: ['Vitest', 'Stryker', 'GitHub Actions', 'Sentry', 'OpenTelemetry'] },
   { category: 'AI / Tools', items: ['Claude API', 'Playwright', 'Git'] },
 ];
 

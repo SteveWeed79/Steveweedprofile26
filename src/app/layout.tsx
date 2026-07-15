@@ -18,7 +18,7 @@ const dmMono = DM_Mono({
 
 const SITE_URL = 'https://www.swbuild.dev';
 const DESCRIPTION =
-  'Steve Weed — builder and full-stack developer. Founder of KTXZ Enterprises and creator of Forespec, an engine that forces domain foresight before you build, then verifies what got built against it.';
+  'Steve Weed — builder and full-stack developer. Founder of KTXZ Enterprises, creator of Forespec (an engine that forces domain foresight before you build, then verifies what got built against it), and author of palctl, a REST-native control plane for Palworld game servers.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -32,8 +32,10 @@ export const metadata: Metadata = {
     'full-stack developer',
     'KTXZ Enterprises',
     'Forespec',
+    'palctl',
     'Next.js',
     'TypeScript',
+    'Python',
     'AI tooling',
   ],
   authors: [{ name: 'Steve Weed', url: 'https://github.com/steveweed79' }],

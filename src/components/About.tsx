@@ -1,7 +1,7 @@
 const facts = [
-  { label: 'Focus', value: 'Full-stack product & developer tooling' },
-  { label: 'Core stack', value: 'Next.js · TypeScript · Node · MongoDB' },
-  { label: 'Currently', value: 'Building Forespec; running KTXZ Shop' },
+  { label: 'Focus', value: 'Full-stack product, developer tooling & systems' },
+  { label: 'Core stack', value: 'Next.js · TypeScript · Node · Python · MongoDB' },
+  { label: 'Currently', value: 'Shipped palctl v1.0.0; building Forespec; running KTXZ Shop' },
   { label: 'Based', value: 'United States' },
 ];
 
@@ -27,9 +27,12 @@ export default function About() {
               marketplace with a full customer storefront and an admin
               operations platform behind it — Stripe checkout, inventory
               reservation, multi-provider pricing, and a test suite in the
-              thousands. And I&apos;m building <strong>Forespec</strong>, an
-              engine that forces domain foresight before you build a feature,
-              then verifies what actually got built against it.
+              thousands. I&apos;m building <strong>Forespec</strong>, an engine
+              that forces domain foresight before you build a feature, then
+              verifies what actually got built against it. And I ship systems
+              tools like <strong>palctl</strong> — a REST-native control plane
+              for Palworld game servers whose watchdog reads real process memory
+              off the OS to restart before a leak bites.
             </p>
             <p>
               The throughline: sweat the non-obvious requirements early, prove
