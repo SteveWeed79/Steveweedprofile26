@@ -18,7 +18,7 @@ const projects: Project[] = [
     href: '/ktxz',
     domain: 'ktxzenterprises.com',
     status: 'Live',
-    tags: ['Next.js 16', 'TypeScript', 'MongoDB', 'Stripe', '1,800+ tests'],
+    tags: ['Next.js 16', 'TypeScript', 'MongoDB', 'Stripe', '2,350+ tests'],
   },
   {
     num: '02',
@@ -28,6 +28,15 @@ const projects: Project[] = [
     domain: 'engine · CLI · PR gate',
     status: 'Building',
     tags: ['Node', 'Reasoning verifier', 'Claude API', 'Dev tooling'],
+  },
+  {
+    num: '03',
+    name: 'palctl',
+    desc: 'REST-native control for a Palworld dedicated server: a memory-leak watchdog that restarts on real memory pressure instead of a timer, leak forecasting, and a daemon / GUI / CLI / web / Discord surface set over one shared core — on Windows and headless Linux.',
+    href: '/palctl',
+    domain: 'Windows · Linux · v1.0.0',
+    status: 'Live',
+    tags: ['Python', 'PySide6', 'asyncio', 'Systems', 'v1.0.0'],
   },
 ];
 

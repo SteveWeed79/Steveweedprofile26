@@ -7,12 +7,12 @@ import ScrollFX from '@/components/ScrollFX';
 export const metadata: Metadata = {
   title: 'KTXZ Shop — a multi-game trading-card marketplace',
   description:
-    'KTXZ Shop is a production e-commerce platform: a customer storefront (search, cart, Stripe checkout, returns) plus a full admin operations platform — built with Next.js 16, MongoDB Atlas Search, NextAuth v5, and Stripe, backed by 1,800+ tests.',
+    'KTXZ Shop is a production e-commerce platform: a customer storefront (search, cart, Stripe checkout, returns, collection tracking) plus a full admin operations platform — built with Next.js 16, MongoDB Atlas Search, NextAuth v5, and Stripe, backed by 2,350+ tests.',
   alternates: { canonical: '/ktxz' },
   openGraph: {
     title: 'KTXZ Shop — a multi-game trading-card marketplace',
     description:
-      'Storefront + admin operations platform for eight card games. Next.js 16, MongoDB, Stripe, 1,800+ tests.',
+      'Storefront + admin operations platform for eight card games. Next.js 16, MongoDB, Stripe, 2,350+ tests.',
     url: '/ktxz',
     type: 'article',
   },
@@ -22,13 +22,13 @@ const meta = [
   { label: 'Status', value: 'Live', accent: true },
   { label: 'Role', value: 'Solo — full-stack' },
   { label: 'Framework', value: 'Next.js 16 · React 19' },
-  { label: 'Scale', value: '8 games · 25 data models' },
+  { label: 'Scale', value: '8 games · 33 data models' },
 ];
 
 const stats = [
   { num: '8', label: 'Trading-card games, unified in one catalog' },
-  { num: '1,800+', label: 'Automated tests across 105 files' },
-  { num: '25', label: 'Mongoose data models behind the store' },
+  { num: '2,350+', label: 'Automated tests across 190 files (+ integration, E2E & mutation suites)' },
+  { num: '33', label: 'Mongoose data models behind the store' },
   { num: '5+', label: 'Market-pricing providers, budget-guarded' },
 ];
 
@@ -39,6 +39,7 @@ const storefront = [
   { k: 'Inventory', title: 'TOCTOU-safe reservation', body: 'Stock is held for the duration of checkout and swept by cron, so two buyers can’t race for the last copy of a single.' },
   { k: 'Vault', title: 'Timed product drops', body: 'Scheduled drops with countdown timers and a global drop widget — plus preorder windows carried through checkout with expected-ship dates.' },
   { k: 'Trust', title: 'Reviews & returns', body: 'Product reviews with spam filtering and moderation, self-service return requests, and guest return lookup by order number + email.' },
+  { k: 'Collection', title: 'Binders & portfolio', body: 'A customer collection tracker: catalog owned cards into custom binders, keep a wishlist, watch portfolio value over time and set completion, import/export by CSV, and mint public read-only share links. Entries key to a canonical printing, so they re-value from the current market and survive a listing selling out.' },
 ];
 
 const admin = [
@@ -59,13 +60,13 @@ const hardParts = [
 
 const layers = [
   { name: 'Framework', desc: 'Next.js 16 App Router, React 19, TypeScript 5.9, pnpm 10', badge: 'App Router' },
-  { name: 'Data', desc: 'MongoDB via Mongoose 9, with Atlas Search (regex fallback in dev)', badge: '25 models' },
+  { name: 'Data', desc: 'MongoDB via Mongoose 9, with Atlas Search (regex fallback in dev)', badge: '33 models' },
   { name: 'Auth', desc: 'NextAuth v5 — JWT sessions, RBAC, step-up re-auth', badge: 'RBAC' },
   { name: 'Payments', desc: 'Stripe Embedded Checkout — sessions, webhooks, refunds', badge: 'idempotent' },
   { name: 'Comms', desc: 'Resend + Upstash QStash queue, DLQ, delivery webhooks', badge: 'at-least-once' },
   { name: 'Media', desc: 'AWS S3 + CloudFront, imgly background removal, OpenCV crop', badge: 'auto-crop' },
   { name: 'Ops', desc: 'Vercel Crons, GitHub Actions, Sentry + OpenTelemetry', badge: 'observed' },
-  { name: 'Quality', desc: 'Vitest (105 files, 1,800+ tests) + Stripe integration suite', badge: 'CI-gated' },
+  { name: 'Quality', desc: 'Vitest (190 files, 2,350+ tests) + Stripe integration, Playwright E2E, and Stryker mutation testing', badge: 'CI-gated' },
 ];
 
 export default function KtxzPage() {

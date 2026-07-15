@@ -1,6 +1,6 @@
 const stats = [
   { num: '2026', label: 'Active' },
-  { num: '2', label: 'Shipping' },
+  { num: '3', label: 'Shipping' },
   { num: 'Full-Stack', label: 'Scope' },
 ];
 

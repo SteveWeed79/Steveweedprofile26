@@ -53,6 +53,8 @@ export default function OpengraphImage() {
           <span style={{ color: '#47c8ff' }}>·</span>
           <span>Forespec</span>
           <span style={{ color: '#47c8ff' }}>·</span>
+          <span>palctl</span>
+          <span style={{ color: '#47c8ff' }}>·</span>
           <span>swbuild.dev</span>
         </div>
       </div>
