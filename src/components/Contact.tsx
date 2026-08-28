@@ -1,5 +1,5 @@
 const links = [
-  { label: 'Email',    url: 'mailto:ktxzenterprises@gmail.com' },
+  { label: 'Email',    url: 'mailto:steve@swbuild.dev' },
   { label: 'GitHub',   url: 'https://github.com/steveweed79' },
   { label: 'KTXZ Shop', url: 'https://ktxzenterprises.com' },
 ];

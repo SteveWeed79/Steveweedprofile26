@@ -78,6 +78,7 @@ const personJsonLd = {
   name: 'Steve Weed',
   url: SITE_URL,
   jobTitle: 'Builder / Full-Stack Developer',
+  email: 'steve@swbuild.dev',
   sameAs: ['https://github.com/steveweed79', 'https://ktxzenterprises.com'],
   worksFor: { '@type': 'Organization', name: 'KTXZ Enterprises' },
 };
