@@ -38,6 +38,15 @@ const projects: Project[] = [
     status: 'Live',
     tags: ['Python', 'PySide6', 'asyncio', 'Systems', 'v1.0.0'],
   },
+  {
+    num: '04',
+    name: 'Evenglow',
+    desc: 'Offline-first farm operations — stock, growing, and machinery in one Android app that works with the radio off. A mutation log on device, a three-write commit protocol on a server with no transactions, and a sync engine that would rather stop than skip.',
+    href: '/evenglow',
+    domain: 'Android · offline-first · v0.3.2',
+    status: 'Building',
+    tags: ['React Native', 'Expo SDK 57', 'SQLite', 'Fastify', '2,858 tests'],
+  },
 ];
 
 export default function Projects() {
