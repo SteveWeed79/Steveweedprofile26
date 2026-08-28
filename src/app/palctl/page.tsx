@@ -278,8 +278,8 @@ export default function PalctlPage() {
             <a className="contact-btn" href="https://github.com/SteveWeed79/palctl" target="_blank" rel="noopener noreferrer">
               View source <span className="contact-btn__arrow" aria-hidden="true">↗</span>
             </a>
-            <Link className="contact-btn" href="/ktxz">
-              Next: KTXZ Shop <span className="contact-btn__arrow" aria-hidden="true">→</span>
+            <Link className="contact-btn" href="/evenglow">
+              Next: Evenglow <span className="contact-btn__arrow" aria-hidden="true">→</span>
             </Link>
           </div>
         </section>
