@@ -11,7 +11,7 @@ const stack = [
 export default function Skills() {
   return (
     <section className="section" id="stack">
-      <p className="section__label">Stack</p>
+      <h2 className="section__label">Stack</h2>
       <div className="skills__table">
         {stack.map((row) => (
           <div key={row.category} className="skills__row" data-reveal>

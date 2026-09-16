@@ -7,10 +7,10 @@ const links = [
 export default function Contact() {
   return (
     <section className="section contact-section" id="contact">
-      <p className="section__label">Contact</p>
-      <h2 className="contact__headline">
+      <h2 className="section__label">Contact</h2>
+      <p className="contact__headline">
         Let&apos;s build<br />something.
-      </h2>
+      </p>
       <div className="contact__accent" />
       <p className="contact__sub">
         Have a product to ship, a store to run, or tooling to tame? I&apos;m

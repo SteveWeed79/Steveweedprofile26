@@ -42,12 +42,12 @@ export default function WorkPage() {
         </section>
 
         <section className="fs-section" data-reveal>
-          <p className="fs-section__label">Case studies</p>
-          <h2 className="fs-h2">
+          <h2 className="fs-section__label">Case studies</h2>
+          <h3 className="fs-h2">
             {caseStudies.length} project
             {caseStudies.length === 1 ? '' : 's'} written up end to end — the
             architecture, the hard parts, and what they deliberately don&apos;t do.
-          </h2>
+          </h3>
           <div style={{ marginTop: '30px' }}>
             <ProjectList items={caseStudies} />
           </div>
@@ -55,10 +55,10 @@ export default function WorkPage() {
 
         {unwrittenProjects.length > 0 && (
           <section className="fs-section" data-reveal>
-            <p className="fs-section__label">Also built</p>
-            <h2 className="fs-h2">
+            <h2 className="fs-section__label">Also built</h2>
+            <h3 className="fs-h2">
               Shipped, smaller, or still finding their shape — no write-up yet.
-            </h2>
+            </h3>
             <div style={{ marginTop: '30px' }}>
               <ProjectList items={unwrittenProjects} />
             </div>

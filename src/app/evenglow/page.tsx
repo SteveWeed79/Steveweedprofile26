@@ -3,6 +3,8 @@ import Link from 'next/link';
 import CaseHeader from '@/components/CaseHeader';
 import Footer from '@/components/Footer';
 import ScrollFX from '@/components/ScrollFX';
+import CaseSummary from '@/components/CaseSummary';
+import CaseToc from '@/components/CaseToc';
 import { nextProject } from '@/data/projects';
 
 export const metadata: Metadata = {
@@ -127,6 +129,23 @@ const limits = [
 
 const next = nextProject('evenglow');
 
+const summary = [
+  { k: 'Problem', v: <>Farm work happens where there is no signal. Most farm software assumes a connection and quietly loses the entry when there isn’t one.</> },
+  { k: 'Solution', v: <>Every action writes to a <strong>mutation log on the device first</strong>. A sync engine reconciles later against a server with no multi-document transactions, using a commit protocol that would rather stop than skip.</> },
+  { k: 'Proof', v: <>3,200+ tests across 267 files — and one TODO comment in 72,000+ lines of strict TypeScript.</> },
+  { k: 'Unlocks', v: <>A full day of records taken <strong>in airplane mode</strong>, syncing exactly once when the signal comes back.</> },
+];
+
+const toc = [
+  { id: 'why-it-exists', label: 'Why it exists' },
+  { id: 'the-thesis', label: 'The thesis' },
+  { id: 'architecture', label: 'Architecture' },
+  { id: 'hard-parts', label: 'The hard parts' },
+  { id: 'by-the-numbers', label: 'By the numbers' },
+  { id: 'under-the-hood', label: 'Under the hood' },
+  { id: 'what-the-claims-actually', label: 'What the claims actually mean' },
+];
+
 export default function EvenglowPage() {
   return (
     <>
@@ -167,9 +186,13 @@ export default function EvenglowPage() {
           </div>
         </section>
 
-        <section className="fs-section" data-reveal>
-          <p className="fs-section__label">Why it exists</p>
-          <h2 className="fs-h2">The same person checks the hens and the carrots on the same walk.</h2>
+        <CaseSummary rows={summary} />
+
+        <CaseToc items={toc} />
+
+        <section className="fs-section" id="why-it-exists" data-reveal>
+          <h2 className="fs-section__label">Why it exists</h2>
+          <h3 className="fs-h2">The same person checks the hens and the carrots on the same walk.</h3>
           <p className="fs-p">
             A small mixed farm runs animals, growing, and machinery at once —
             poultry and ratites and ruminants, beds and polytunnels and
@@ -195,9 +218,9 @@ export default function EvenglowPage() {
           </div>
         </section>
 
-        <section className="fs-section" data-reveal>
-          <p className="fs-section__label">The thesis</p>
-          <h2 className="fs-h2">The abstraction was built for a pivot that had already been argued against.</h2>
+        <section className="fs-section" id="the-thesis" data-reveal>
+          <h2 className="fs-section__label">The thesis</h2>
+          <h3 className="fs-h2">The abstraction was built for a pivot that had already been argued against.</h3>
           <p className="fs-p">
             The project pivoted twice: a Next.js PWA to Capacitor, then Capacitor
             to React Native, deleting the old client both times. Before the
@@ -230,8 +253,8 @@ export default function EvenglowPage() {
         </section>
 
         <section className="fs-section" id="architecture" data-reveal>
-          <p className="fs-section__label">Architecture</p>
-          <h2 className="fs-h2">Six stages, and a mutation is durable at the first one.</h2>
+          <h2 className="fs-section__label">Architecture</h2>
+          <h3 className="fs-h2">Six stages, and a mutation is durable at the first one.</h3>
           <p className="fs-p">
             A record is written to device SQLite and is safe there before
             anything touches the network. Everything after that is reconciliation
@@ -250,8 +273,8 @@ export default function EvenglowPage() {
         </section>
 
         <section className="fs-section" id="hard-parts" data-reveal>
-          <p className="fs-section__label">The hard parts</p>
-          <h2 className="fs-h2">Every one of these is a failure that stays invisible until it is expensive.</h2>
+          <h2 className="fs-section__label">The hard parts</h2>
+          <h3 className="fs-h2">Every one of these is a failure that stays invisible until it is expensive.</h3>
           <div className="fs-principles">
             {hardParts.map((p) => (
               <div key={p.t} className="fs-principle">
@@ -262,8 +285,8 @@ export default function EvenglowPage() {
           </div>
         </section>
 
-        <section className="fs-section" data-reveal>
-          <p className="fs-section__label">By the numbers</p>
+        <section className="fs-section" id="by-the-numbers" data-reveal>
+          <h2 className="fs-section__label">By the numbers</h2>
           <div className="fs-stats">
             {stats.map((s) => (
               <div key={s.label} className="fs-stat">
@@ -283,9 +306,9 @@ export default function EvenglowPage() {
           </p>
         </section>
 
-        <section className="fs-section" data-reveal>
-          <p className="fs-section__label">Under the hood</p>
-          <h2 className="fs-h2">The stack, by layer.</h2>
+        <section className="fs-section" id="under-the-hood" data-reveal>
+          <h2 className="fs-section__label">Under the hood</h2>
+          <h3 className="fs-h2">The stack, by layer.</h3>
           {layers.map((l) => (
             <div key={l.name} className="fs-arch-row">
               <span className="fs-arch-row__name">{l.name}</span>
@@ -295,9 +318,9 @@ export default function EvenglowPage() {
           ))}
         </section>
 
-        <section className="fs-section" data-reveal>
-          <p className="fs-section__label">What the claims actually mean</p>
-          <h2 className="fs-h2">The interesting version of a sync engine is the one that says where it stops.</h2>
+        <section className="fs-section" id="what-the-claims-actually" data-reveal>
+          <h2 className="fs-section__label">What the claims actually mean</h2>
+          <h3 className="fs-h2">The interesting version of a sync engine is the one that says where it stops.</h3>
           <div className="fs-principles">
             {limits.map((p) => (
               <div key={p.t} className="fs-principle">

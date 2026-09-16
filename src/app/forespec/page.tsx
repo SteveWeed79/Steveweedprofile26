@@ -3,6 +3,8 @@ import Link from 'next/link';
 import CaseHeader from '@/components/CaseHeader';
 import Footer from '@/components/Footer';
 import ScrollFX from '@/components/ScrollFX';
+import CaseSummary from '@/components/CaseSummary';
+import CaseToc from '@/components/CaseToc';
 import { nextProject } from '@/data/projects';
 
 export const metadata: Metadata = {
@@ -123,6 +125,23 @@ const phases = [
 
 const next = nextProject('forespec');
 
+const summary = [
+  { k: 'Problem', v: <>AI coding tools build what you ask, not the non-obvious thing your kind of app requires — an atomic stock hold, tenant isolation, webhook authenticity. You find out in month three, doing surgery on a live flow.</> },
+  { k: 'Solution', v: <>An engine that surfaces those requirements <strong>before</strong> you build, hands your coding tool a gotcha-aware spec, then grades what actually got built and tracks how each part moves run over run.</> },
+  { k: 'Proof', v: <>Shipping on npm at v0.1.3, with a GitHub Action that gates pull requests.</> },
+  { k: 'Unlocks', v: <>The expensive discoveries land in <strong>week one instead of month three</strong>.</> },
+];
+
+const toc = [
+  { id: 'the-problem', label: 'The problem' },
+  { id: 'the-loop-it-keeps', label: 'The loop it keeps live' },
+  { id: 'architecture', label: 'Architecture' },
+  { id: 'does-the-verifier-tell', label: 'Does the verifier tell the truth?' },
+  { id: 'a-composable-standard', label: 'A composable standard' },
+  { id: 'principles-true-from-commit', label: 'Principles' },
+  { id: 'build-order-verifier-first', label: 'Build order' },
+];
+
 export default function ForespecPage() {
   return (
     <>
@@ -165,9 +184,13 @@ export default function ForespecPage() {
           </div>
         </section>
 
-        <section className="fs-section" data-reveal>
-          <p className="fs-section__label">The problem</p>
-          <h2 className="fs-h2">The failure isn&apos;t bad code. It&apos;s foresight arriving too late.</h2>
+        <CaseSummary rows={summary} />
+
+        <CaseToc items={toc} />
+
+        <section className="fs-section" id="the-problem" data-reveal>
+          <h2 className="fs-section__label">The problem</h2>
+          <h3 className="fs-h2">The failure isn&apos;t bad code. It&apos;s foresight arriving too late.</h3>
           <p className="fs-p">
             AI coding tools answer the literal ask. Nothing in the moment forces a
             stop to interrogate the non-obvious requirements of a feature. Depth is
@@ -190,9 +213,9 @@ export default function ForespecPage() {
           </div>
         </section>
 
-        <section className="fs-section" data-reveal>
-          <p className="fs-section__label">The loop it keeps live</p>
-          <h2 className="fs-h2">Point → build → verify → remember — and the foresight stays alive the whole way.</h2>
+        <section className="fs-section" id="the-loop-it-keeps" data-reveal>
+          <h2 className="fs-section__label">The loop it keeps live</h2>
+          <h3 className="fs-h2">Point → build → verify → remember — and the foresight stays alive the whole way.</h3>
           <div className="fs-loop">
             {[
               { n: '01', name: 'Point', desc: 'Interrogate the domain and emit a gotcha-aware spec — the decide-first questions + acceptance criteria, most-foundational pieces first.' },
@@ -216,8 +239,8 @@ export default function ForespecPage() {
         </section>
 
         <section className="fs-section" id="architecture" data-reveal>
-          <p className="fs-section__label">Architecture</p>
-          <h2 className="fs-h2">Five components, one spine.</h2>
+          <h2 className="fs-section__label">Architecture</h2>
+          <h3 className="fs-h2">Five components, one spine.</h3>
           <div className="fs-grid">
             {components.map((c) => (
               <div key={c.k} className="fs-card">
@@ -229,9 +252,9 @@ export default function ForespecPage() {
           </div>
         </section>
 
-        <section className="fs-section" data-reveal>
-          <p className="fs-section__label">Does the verifier tell the truth?</p>
-          <h2 className="fs-h2">The whole tool rests on one number: how often the grader lets a bad thing through.</h2>
+        <section className="fs-section" id="does-the-verifier-tell" data-reveal>
+          <h2 className="fs-section__label">Does the verifier tell the truth?</h2>
+          <h3 className="fs-h2">The whole tool rests on one number: how often the grader lets a bad thing through.</h3>
           <div className="fs-stats">
             {stats.map((s) => (
               <div key={s.label} className="fs-stat">
@@ -259,9 +282,9 @@ export default function ForespecPage() {
           </p>
         </section>
 
-        <section className="fs-section" data-reveal>
-          <p className="fs-section__label">A composable standard</p>
-          <h2 className="fs-h2">One shared checkpoint library. Every archetype composes it.</h2>
+        <section className="fs-section" id="a-composable-standard" data-reveal>
+          <h2 className="fs-section__label">A composable standard</h2>
+          <h3 className="fs-h2">One shared checkpoint library. Every archetype composes it.</h3>
           {archetypes.map((a) => (
             <div key={a.name} className="fs-arch-row">
               <span className="fs-arch-row__name">{a.name}</span>
@@ -278,8 +301,8 @@ export default function ForespecPage() {
           </p>
         </section>
 
-        <section className="fs-section" data-reveal>
-          <p className="fs-section__label">Principles — true from commit #1</p>
+        <section className="fs-section" id="principles-true-from-commit" data-reveal>
+          <h2 className="fs-section__label">Principles — true from commit #1</h2>
           <div className="fs-principles">
             {principles.map((p) => (
               <div key={p.t} className="fs-principle">
@@ -290,9 +313,9 @@ export default function ForespecPage() {
           </div>
         </section>
 
-        <section className="fs-section" data-reveal>
-          <p className="fs-section__label">Build order — verifier first, shell last</p>
-          <h2 className="fs-h2">Each phase ships real and stands alone. The pearl gets proven before the shell gets built.</h2>
+        <section className="fs-section" id="build-order-verifier-first" data-reveal>
+          <h2 className="fs-section__label">Build order — verifier first, shell last</h2>
+          <h3 className="fs-h2">Each phase ships real and stands alone. The pearl gets proven before the shell gets built.</h3>
           <div className="fs-phases">
             {phases.map((p) => {
               const mod = p.s === 'Shipped' ? ' fs-phase--now' : '';
