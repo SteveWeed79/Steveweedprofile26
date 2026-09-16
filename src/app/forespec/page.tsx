@@ -3,6 +3,7 @@ import Link from 'next/link';
 import CaseHeader from '@/components/CaseHeader';
 import Footer from '@/components/Footer';
 import ScrollFX from '@/components/ScrollFX';
+import { nextProject } from '@/data/projects';
 
 export const metadata: Metadata = {
   title: 'Forespec — foresight before you build, verified after',
@@ -119,6 +120,8 @@ const phases = [
   { n: '6', t: 'Deferred model-scored design experiments — earned against real data or cut', s: 'Planned' },
   { n: '7', t: 'Reach beyond one machine — multi-user, wall intact', s: 'Planned' },
 ];
+
+const next = nextProject('forespec');
 
 export default function ForespecPage() {
   return (
@@ -310,8 +313,8 @@ export default function ForespecPage() {
             <a className="contact-btn" href="https://github.com/SteveWeed79/forespec" target="_blank" rel="noopener noreferrer">
               View source <span className="contact-btn__arrow" aria-hidden="true">↗</span>
             </a>
-            <Link className="contact-btn" href="/palctl">
-              Next: palctl <span className="contact-btn__arrow" aria-hidden="true">→</span>
+            <Link className="contact-btn" href={next.href}>
+              Next: {next.name} <span className="contact-btn__arrow" aria-hidden="true">→</span>
             </Link>
           </div>
         </section>

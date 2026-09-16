@@ -3,6 +3,7 @@ import Link from 'next/link';
 import CaseHeader from '@/components/CaseHeader';
 import Footer from '@/components/Footer';
 import ScrollFX from '@/components/ScrollFX';
+import { nextProject } from '@/data/projects';
 
 export const metadata: Metadata = {
   title: 'KTXZ Shop — a multi-game trading-card marketplace',
@@ -68,6 +69,8 @@ const layers = [
   { name: 'Ops', desc: 'Vercel Crons, GitHub Actions, Sentry + OpenTelemetry', badge: 'observed' },
   { name: 'Quality', desc: 'Vitest (190 files, 2,350+ tests) + Stripe integration, Playwright E2E, and Stryker mutation testing', badge: 'CI-gated' },
 ];
+
+const next = nextProject('ktxz');
 
 export default function KtxzPage() {
   return (
@@ -198,8 +201,8 @@ export default function KtxzPage() {
             <a className="contact-btn" href="https://ktxzenterprises.com" target="_blank" rel="noopener noreferrer">
               Visit KTXZ Shop <span className="contact-btn__arrow" aria-hidden="true">↗</span>
             </a>
-            <Link className="contact-btn" href="/forespec">
-              Next: Forespec <span className="contact-btn__arrow" aria-hidden="true">→</span>
+            <Link className="contact-btn" href={next.href}>
+              Next: {next.name} <span className="contact-btn__arrow" aria-hidden="true">→</span>
             </Link>
           </div>
         </section>

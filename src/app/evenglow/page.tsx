@@ -3,6 +3,7 @@ import Link from 'next/link';
 import CaseHeader from '@/components/CaseHeader';
 import Footer from '@/components/Footer';
 import ScrollFX from '@/components/ScrollFX';
+import { nextProject } from '@/data/projects';
 
 export const metadata: Metadata = {
   title: 'Evenglow — offline-first farm operations',
@@ -123,6 +124,8 @@ const limits = [
     d: 'The Play Console account is unstarted and carries a waiting period, so the only way onto a phone today is a hand-installed APK. One farm is live, holding 3.8 MB, and until off-site copies land that farm is one disk away from being the only copy.',
   },
 ];
+
+const next = nextProject('evenglow');
 
 export default function EvenglowPage() {
   return (
@@ -318,8 +321,8 @@ export default function EvenglowPage() {
             <a className="contact-btn" href="https://github.com/SteveWeed79/evenglow" target="_blank" rel="noopener noreferrer">
               View source <span className="contact-btn__arrow" aria-hidden="true">↗</span>
             </a>
-            <Link className="contact-btn" href="/ktxz">
-              Next: KTXZ Shop <span className="contact-btn__arrow" aria-hidden="true">→</span>
+            <Link className="contact-btn" href={next.href}>
+              Next: {next.name} <span className="contact-btn__arrow" aria-hidden="true">→</span>
             </Link>
           </div>
         </section>

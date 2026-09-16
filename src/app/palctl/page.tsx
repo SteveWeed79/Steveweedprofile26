@@ -3,6 +3,7 @@ import Link from 'next/link';
 import CaseHeader from '@/components/CaseHeader';
 import Footer from '@/components/Footer';
 import ScrollFX from '@/components/ScrollFX';
+import { nextProject } from '@/data/projects';
 
 export const metadata: Metadata = {
   title: 'palctl — REST-native Palworld server control',
@@ -118,6 +119,8 @@ const limits = [
     d: 'The server is a closed UE5 binary. There is no Torch equivalent and can’t be one without injection. palctl stays inside what the real API supports.',
   },
 ];
+
+const next = nextProject('palctl');
 
 export default function PalctlPage() {
   return (
@@ -278,8 +281,8 @@ export default function PalctlPage() {
             <a className="contact-btn" href="https://github.com/SteveWeed79/palctl" target="_blank" rel="noopener noreferrer">
               View source <span className="contact-btn__arrow" aria-hidden="true">↗</span>
             </a>
-            <Link className="contact-btn" href="/evenglow">
-              Next: Evenglow <span className="contact-btn__arrow" aria-hidden="true">→</span>
+            <Link className="contact-btn" href={next.href}>
+              Next: {next.name} <span className="contact-btn__arrow" aria-hidden="true">→</span>
             </Link>
           </div>
         </section>

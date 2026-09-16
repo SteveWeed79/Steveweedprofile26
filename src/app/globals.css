@@ -560,6 +560,23 @@ body {
   flex-shrink: 0;
 }
 
+.projects__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 26px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-2);
+  text-decoration: none;
+  transition: color 150ms;
+}
+.projects__more:hover { color: var(--accent); }
+.projects__more-arrow { transition: transform 150ms; }
+.projects__more:hover .projects__more-arrow { transform: translateX(4px); }
+
 /* ──────────────────────────────────────────
    SKILLS — categorized table
 ────────────────────────────────────────── */

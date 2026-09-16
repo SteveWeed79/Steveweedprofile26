@@ -1,6 +1,12 @@
+import { projects } from '@/data/projects';
+
+const shipping = projects.filter(
+  (p) => p.status === 'Live' || p.status === 'Building',
+).length;
+
 const stats = [
   { num: '2026', label: 'Active' },
-  { num: '3', label: 'Shipping' },
+  { num: String(shipping), label: 'Shipping' },
   { num: 'Full-Stack', label: 'Scope' },
 ];
 
