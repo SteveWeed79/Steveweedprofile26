@@ -1,6 +1,6 @@
 const stack = [
-  { category: 'Frontend',   items: ['React', 'Next.js', 'TypeScript', 'Tailwind', 'CSS'] },
-  { category: 'Backend',    items: ['Node.js', 'MongoDB', 'Mongoose', 'Zod', 'REST'] },
+  { category: 'Frontend',   items: ['React', 'Next.js', 'React Native', 'Expo', 'TypeScript', 'Tailwind', 'CSS'] },
+  { category: 'Backend',    items: ['Node.js', 'Fastify', 'MongoDB', 'Mongoose', 'Zod', 'REST'] },
   { category: 'Systems',    items: ['Python', 'asyncio', 'PySide6', 'SQLite', 'systemd / Win services'] },
   { category: 'Payments',   items: ['Stripe', 'Webhooks', 'Idempotency'] },
   { category: 'Infra',      items: ['Vercel', 'AWS S3 / CloudFront', 'Upstash Redis', 'Cron'] },

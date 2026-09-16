@@ -3,16 +3,17 @@ import Link from 'next/link';
 import CaseHeader from '@/components/CaseHeader';
 import Footer from '@/components/Footer';
 import ScrollFX from '@/components/ScrollFX';
+import { nextProject } from '@/data/projects';
 
 export const metadata: Metadata = {
   title: 'KTXZ Shop — a multi-game trading-card marketplace',
   description:
-    'KTXZ Shop is a production e-commerce platform: a customer storefront (search, cart, Stripe checkout, returns, collection tracking) plus a full admin operations platform — built with Next.js 16, MongoDB Atlas Search, NextAuth v5, and Stripe, backed by 2,350+ tests.',
+    'KTXZ Shop is a production e-commerce platform: a customer storefront (search, cart, Stripe checkout, returns, collection tracking) plus a full admin operations platform — built with Next.js 16, MongoDB Atlas Search, NextAuth v5, and Stripe, backed by 2,800+ tests.',
   alternates: { canonical: '/ktxz' },
   openGraph: {
     title: 'KTXZ Shop — a multi-game trading-card marketplace',
     description:
-      'Storefront + admin operations platform for eight card games. Next.js 16, MongoDB, Stripe, 2,350+ tests.',
+      'Storefront + admin operations platform for eight card games. Next.js 16, MongoDB, Stripe, 2,800+ tests.',
     url: '/ktxz',
     type: 'article',
   },
@@ -27,9 +28,9 @@ const meta = [
 
 const stats = [
   { num: '8', label: 'Trading-card games, unified in one catalog' },
-  { num: '2,350+', label: 'Automated tests across 190 files (+ integration, E2E & mutation suites)' },
+  { num: '2,800+', label: 'Automated tests across 224 files (+ integration, E2E & mutation suites)' },
   { num: '33', label: 'Mongoose data models behind the store' },
-  { num: '5+', label: 'Market-pricing providers, budget-guarded' },
+  { num: '10', label: 'Market-pricing providers, budget-guarded' },
 ];
 
 const storefront = [
@@ -66,8 +67,10 @@ const layers = [
   { name: 'Comms', desc: 'Resend + Upstash QStash queue, DLQ, delivery webhooks', badge: 'at-least-once' },
   { name: 'Media', desc: 'AWS S3 + CloudFront, imgly background removal, OpenCV crop', badge: 'auto-crop' },
   { name: 'Ops', desc: 'Vercel Crons, GitHub Actions, Sentry + OpenTelemetry', badge: 'observed' },
-  { name: 'Quality', desc: 'Vitest (190 files, 2,350+ tests) + Stripe integration, Playwright E2E, and Stryker mutation testing', badge: 'CI-gated' },
+  { name: 'Quality', desc: 'Vitest (224 files, 2,800+ tests) + Stripe integration, Playwright E2E, and Stryker mutation testing', badge: 'CI-gated' },
 ];
+
+const next = nextProject('ktxz');
 
 export default function KtxzPage() {
   return (
@@ -198,8 +201,8 @@ export default function KtxzPage() {
             <a className="contact-btn" href="https://ktxzenterprises.com" target="_blank" rel="noopener noreferrer">
               Visit KTXZ Shop <span className="contact-btn__arrow" aria-hidden="true">↗</span>
             </a>
-            <Link className="contact-btn" href="/forespec">
-              Next: Forespec <span className="contact-btn__arrow" aria-hidden="true">→</span>
+            <Link className="contact-btn" href={next.href}>
+              Next: {next.name} <span className="contact-btn__arrow" aria-hidden="true">→</span>
             </Link>
           </div>
         </section>

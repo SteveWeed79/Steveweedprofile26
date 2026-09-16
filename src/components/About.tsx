@@ -1,7 +1,7 @@
 const facts = [
   { label: 'Focus', value: 'Full-stack product, developer tooling & systems' },
-  { label: 'Core stack', value: 'Next.js · TypeScript · Node · Python · MongoDB' },
-  { label: 'Currently', value: 'Shipped palctl v1.0.0; building Forespec; running KTXZ Shop' },
+  { label: 'Core stack', value: 'Next.js · TypeScript · Node · Python · React Native · MongoDB' },
+  { label: 'Currently', value: 'Running KTXZ Shop; building Evenglow and Forespec; shipped palctl v1.2.8.3' },
   { label: 'Based', value: 'United States' },
 ];
 
@@ -32,7 +32,9 @@ export default function About() {
               verifies what actually got built against it. And I ship systems
               tools like <strong>palctl</strong> — a REST-native control plane
               for Palworld game servers whose watchdog reads real process memory
-              off the OS to restart before a leak bites.
+              off the OS to restart before a leak bites. <strong>Evenglow</strong>{' '}
+              takes the same care offline — farm operations on an Android device
+              that keeps working with the radio off.
             </p>
             <p>
               The throughline: sweat the non-obvious requirements early, prove

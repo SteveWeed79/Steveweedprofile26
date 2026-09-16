@@ -3,6 +3,7 @@ import Link from 'next/link';
 import CaseHeader from '@/components/CaseHeader';
 import Footer from '@/components/Footer';
 import ScrollFX from '@/components/ScrollFX';
+import { nextProject } from '@/data/projects';
 
 export const metadata: Metadata = {
   title: 'palctl — REST-native Palworld server control',
@@ -12,14 +13,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'palctl — a control plane for Palworld dedicated servers',
     description:
-      'Reads the game server’s real memory off the OS and restarts before a leak bites — daemon, GUI, CLI, web, and Discord over one core. Released v1.0.0, Windows + headless Linux.',
+      'Reads the game server’s real memory off the OS and restarts before a leak bites — daemon, GUI, CLI, web, and Discord over one core. Released v1.2.8.3, Windows + headless Linux.',
     url: '/palctl',
     type: 'article',
   },
 };
 
 const meta = [
-  { label: 'Status', value: 'Released · v1.0.0', accent: true },
+  { label: 'Status', value: 'Released · v1.2.8.3', accent: true },
   { label: 'Role', value: 'Solo — design + engineering' },
   { label: 'Runtime', value: 'Python 3.11+ · PySide6' },
   { label: 'Surfaces', value: 'daemon · GUI · CLI · web · Discord' },
@@ -51,7 +52,7 @@ const surfaces = [
   {
     k: 'Discord',
     title: 'A bot that’s yours',
-    body: '13 slash commands plus join/leave, level-up, watchdog, up/down, and update-available notifications, an optional auto-refreshing status message, and a welcome line. Your token, your machine — no third-party bridge holding your admin password. First-connect retry, and sends are queued so a Discord rate limit can’t stall polling or the watchdog.',
+    body: '17 slash commands plus join/leave, level-up, watchdog, up/down, and update-available notifications, an optional auto-refreshing status message, and a welcome line. Your token, your machine — no third-party bridge holding your admin password. First-connect retry, and sends are queued so a Discord rate limit can’t stall polling or the watchdog.',
   },
   {
     k: 'Core',
@@ -62,9 +63,9 @@ const surfaces = [
 
 const stats = [
   { num: '5', label: 'Control surfaces over one shared core' },
-  { num: '29', label: 'Commands — 16 CLI subcommands + 13 Discord slash commands' },
-  { num: '180+', label: 'Tests green on a Windows + Linux CI matrix (Python 3.11 & 3.12)' },
-  { num: '1.0.0', label: 'Shipped after a full release-readiness audit of every subsystem' },
+  { num: '33', label: 'Commands — 16 CLI subcommands + 17 Discord slash commands' },
+  { num: '1,000+', label: 'Tests green on a Windows + Linux CI matrix (Python 3.11–3.13)' },
+  { num: '1.2.8.3', label: 'Current release — shipped after a full readiness audit of every subsystem at 1.0' },
 ];
 
 const hardParts = [
@@ -101,7 +102,7 @@ const layers = [
   { name: 'Data', desc: 'SQLite for session/playtime and metrics history, so the graphs survive a daemon restart; a hand-rolled ini parser that preserves unknown keys from future patches.', badge: 'SQLite' },
   { name: 'Discord', desc: 'A self-hosted discord.py bot — 13 slash commands and event notifications, queue-backed sends, and first-connect retry.', badge: 'discord.py' },
   { name: 'Packaging', desc: 'PyInstaller builds the binaries; Inno Setup produces the installer and a portable zip; secrets go to Windows Credential Manager via DPAPI, never a config file.', badge: 'PyInstaller + Inno Setup' },
-  { name: 'CI / Quality', desc: 'A GitHub Actions matrix (Windows + Linux × Python 3.11/3.12), ruff, an import-smoke job under offscreen Qt, and the test suite on every push.', badge: 'GitHub Actions · ruff' },
+  { name: 'CI / Quality', desc: 'A GitHub Actions matrix (Windows + Linux × Python 3.11–3.13), ruff, an import-smoke job under offscreen Qt, and the test suite on every push.', badge: 'GitHub Actions · ruff' },
 ];
 
 const limits = [
@@ -118,6 +119,8 @@ const limits = [
     d: 'The server is a closed UE5 binary. There is no Torch equivalent and can’t be one without injection. palctl stays inside what the real API supports.',
   },
 ];
+
+const next = nextProject('palctl');
 
 export default function PalctlPage() {
   return (
@@ -154,7 +157,7 @@ export default function PalctlPage() {
               View source <span className="contact-btn__arrow" aria-hidden="true">↗</span>
             </a>
             <a className="contact-btn" href="https://github.com/SteveWeed79/palctl/releases/latest" target="_blank" rel="noopener noreferrer">
-              Download v1.0.0 <span className="contact-btn__arrow" aria-hidden="true">↗</span>
+              Download v1.2.8.3 <span className="contact-btn__arrow" aria-hidden="true">↗</span>
             </a>
             <a className="contact-btn" href="#hard-parts">
               The hard parts <span className="contact-btn__arrow" aria-hidden="true">↓</span>
@@ -266,8 +269,11 @@ export default function PalctlPage() {
             The installer isn&apos;t code-signed yet, so Windows SmartScreen shows
             a one-time prompt — every release ships a{' '}
             <code>SHA256SUMS.txt</code> so the download can be verified against
-            what CI built. A <strong>winget</strong> listing and free
-            code-signing via SignPath&apos;s open-source program are on the
+            what CI built. The <strong>winget</strong> manifest is complete — real
+            installer URL, real SHA256 — and waiting on its pull request into{' '}
+            <code>microsoft/winget-pkgs</code> to land, so{' '}
+            <code>winget install</code> won&apos;t resolve it yet. Free
+            code-signing via SignPath&apos;s open-source program is still on the
             roadmap.
           </p>
         </section>
@@ -278,8 +284,8 @@ export default function PalctlPage() {
             <a className="contact-btn" href="https://github.com/SteveWeed79/palctl" target="_blank" rel="noopener noreferrer">
               View source <span className="contact-btn__arrow" aria-hidden="true">↗</span>
             </a>
-            <Link className="contact-btn" href="/evenglow">
-              Next: Evenglow <span className="contact-btn__arrow" aria-hidden="true">→</span>
+            <Link className="contact-btn" href={next.href}>
+              Next: {next.name} <span className="contact-btn__arrow" aria-hidden="true">→</span>
             </Link>
           </div>
         </section>

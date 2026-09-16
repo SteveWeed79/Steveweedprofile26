@@ -33,6 +33,7 @@ export const metadata: Metadata = {
     'KTXZ Enterprises',
     'Forespec',
     'palctl',
+    'Evenglow',
     'Next.js',
     'TypeScript',
     'Python',
