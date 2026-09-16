@@ -8,19 +8,19 @@ import { nextProject } from '@/data/projects';
 export const metadata: Metadata = {
   title: 'Evenglow — offline-first farm operations',
   description:
-    'Evenglow is an offline-first farm record keeper: stock, growing, and machinery in one Android app that works with the radio off. React Native on Expo SDK 57, SQLite on device, Fastify and MongoDB on the server, backed by 2,858 tests across 229 files.',
+    'Evenglow is an offline-first farm record keeper: stock, growing, and machinery in one Android app that works with the radio off. React Native on Expo SDK 57, SQLite on device, Fastify and MongoDB on the server, backed by 3,200+ tests across 267 files.',
   alternates: { canonical: '/evenglow' },
   openGraph: {
     title: 'Evenglow — offline-first farm operations',
     description:
-      'A mutation log on device, a three-write commit protocol on a server with no transactions, and a sync engine that would rather stop than skip. 2,858 tests across 229 files.',
+      'A mutation log on device, a three-write commit protocol on a server with no transactions, and a sync engine that would rather stop than skip. 3,200+ tests across 267 files.',
     url: '/evenglow',
     type: 'article',
   },
 };
 
 const meta = [
-  { label: 'Status', value: 'Building · v0.3.2', accent: true },
+  { label: 'Status', value: 'Building · v0.6.0', accent: true },
   { label: 'Role', value: 'Solo — design + engineering' },
   { label: 'Client', value: 'React Native · Expo SDK 57' },
   { label: 'Server', value: 'Fastify · MongoDB · Oracle ARM' },
@@ -29,10 +29,10 @@ const meta = [
 ];
 
 const stats = [
-  { num: '2,858', label: 'Tests green across 229 files — typecheck and lint clean on a fresh checkout' },
+  { num: '3,200+', label: 'Tests green across 267 files — typecheck and lint clean on a fresh checkout' },
   { num: '56', label: 'orgId-leading indexes over 30 collections, with no escape hatch to bypass them' },
   { num: '67', label: 'Screens, 61 of them directly exercised by the screen suite' },
-  { num: '1', label: 'TODO comment in 67,307 lines of source' },
+  { num: '1', label: 'TODO comment in 70,000+ lines of source' },
 ];
 
 const pipeline = [
@@ -113,7 +113,7 @@ const limits = [
   },
   {
     t: 'The device gate is a manual gate',
-    d: 'Airplane mode, fifty mutations, process kill, reconnect, zero loss and zero duplicates — earned on real hardware, and re-earned rather than carried over when the storage layer changed. But it leaves no test artifact: nothing in CI proves it, and 300 of the 3,158 tests need a live mongod to run at all.',
+    d: 'Airplane mode, fifty mutations, process kill, reconnect, zero loss and zero duplicates — earned on real hardware, and re-earned rather than carried over when the storage layer changed. But it leaves no test artifact: nothing in CI proves it, and 300 of the 3,200+ tests need a live mongod to run at all.',
   },
   {
     t: 'Commit ordering assumes one process',
@@ -273,7 +273,7 @@ export default function EvenglowPage() {
             ))}
           </div>
           <p className="fs-p" style={{ marginTop: '22px' }}>
-            54,549 lines of test against 67,307 lines of strict TypeScript. The
+            65,000+ lines of test against 72,000+ lines of strict TypeScript. The
             tenancy guard is the one worth naming: across the whole monorepo
             there is not a single <code>.collection()</code> call outside the one
             module allowed to make them, and not a single inline disable of the

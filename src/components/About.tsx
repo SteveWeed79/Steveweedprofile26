@@ -1,7 +1,7 @@
 const facts = [
   { label: 'Focus', value: 'Full-stack product, developer tooling & systems' },
   { label: 'Core stack', value: 'Next.js · TypeScript · Node · Python · React Native · MongoDB' },
-  { label: 'Currently', value: 'Running KTXZ Shop; building Evenglow and Forespec; shipped palctl v1.0.0' },
+  { label: 'Currently', value: 'Running KTXZ Shop; building Evenglow and Forespec; shipped palctl v1.2.8.3' },
   { label: 'Based', value: 'United States' },
 ];
 
