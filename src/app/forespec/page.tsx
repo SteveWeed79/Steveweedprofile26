@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 };
 
 const meta = [
-  { label: 'Status', value: 'Live on npm · v0.1.3', accent: true },
+  { label: 'Status', value: 'Live on npm · v0.2.0', accent: true },
   { label: 'Role', value: 'Solo — design + engineering' },
   { label: 'Engine', value: 'Node · ESM · adapter-based' },
   { label: 'Surface', value: 'CLI · verifier · PR gate' },
@@ -62,7 +62,7 @@ const stats = [
   { num: '0', label: 'False-greens across 152 critical-bad trials on the labelled corpus' },
   { num: '≤2.0%', label: 'Rule-of-three 95% upper bound on the miss rate — under the ≤6% launch bar' },
   { num: '133/133', label: 'Outcome agreement across two independent runs — the verdict isn’t a coin flip' },
-  { num: '5', label: 'Archetypes composed from one shared checkpoint library' },
+  { num: '147', label: 'Verdicts across 8 real OSS repositories, every one citing file:line — 0 fabrications among the findings checked by hand' },
 ];
 
 const archetypes = [
@@ -129,7 +129,7 @@ const summary = [
   { k: 'Problem', v: <>AI coding tools build what you ask, not the non-obvious thing your kind of app requires — an atomic stock hold, tenant isolation, webhook authenticity. You find out in month three, doing surgery on a live flow.</> },
   { k: 'Solution', v: <>An engine that surfaces those requirements <strong>before</strong> you build, hands your coding tool a gotcha-aware spec, then grades what actually got built and tracks how each part moves run over run. Inside Claude Code it runs as a plugin — <strong>no API key</strong>.</> },
   { k: 'Proof', v: <><strong>0 false-greens across 152 critical-bad trials</strong> on the labelled corpus — a ≤2.0% miss rate at 95% confidence, both runs agreeing on all 133 cases.</> },
-  { k: 'Outcome', v: <>Public on npm through four releases, and installable inside Claude Code today — so the expensive discoveries land in <strong>week one instead of month three</strong>.</> },
+  { k: 'Outcome', v: <>Public on npm at v0.2.0 and installable inside Claude Code today — so the expensive discoveries land in <strong>week one instead of month three</strong>.</> },
 ];
 
 const toc = [
@@ -274,23 +274,40 @@ export default function ForespecPage() {
             trustworthy?&rdquo; becomes a number, not a hope.
           </p>
           <p className="fs-p">
-            That number is a <strong>floor, not a ceiling</strong>. The fixtures
-            are snippets, so the grader never gets to follow an import into the
-            middleware that supposedly verifies the signature — which is the
-            whole advantage of grading inside an agent that can read the repo.
-            Proving it needs real repositories; that run is in flight, and until
-            it lands this page won&apos;t claim it.
+            But a corpus of snippets can&apos;t exercise the thing the plugin
+            exists for: grep, read, and follow an import into the code that
+            supposedly holds the guard. So the grader was pointed at{' '}
+            <strong>eight public repositories it had never seen</strong>, and
+            every finding was checked against the source by hand —{' '}
+            <strong>147 verdicts, not one of them without a{' '}
+            <code>file:line</code> citation, and no fabrications</strong> among
+            those audited. It came back clean on the clean repos, which is the
+            property that makes the rest mean anything. The expected weak spot
+            didn&apos;t appear either: a 4,332-file Python codebase, where the
+            JS/TS-shaped keyword selector should have degraded, graded best of
+            the whole run — because the agent greps the repository rather than
+            leaning on the selector.
+          </p>
+          <p className="fs-p">
+            That ledger is a hand-audited field report rather than a second
+            error rate, and it says so. It also records the{' '}
+            <strong>defects the run found in Forespec itself</strong> — a
+            reporting bug that made a good run look like a failed one, and an
+            archetype detector that reads a document-signing SaaS as an AI app
+            on the strength of a single dependency. A proof run that produced
+            only good news would not have been a proof run.
           </p>
           <p className="fs-p">
             You don&apos;t have to take that on faith. Inside Claude Code the
             plugin installs straight from the repository and grades on the
             subscription you already pay for — no API key, no second bill to set
             up. The standalone CLI is one command away with{' '}
-            <code>npx forespec</code>. A zero-setup <code>forespec demo</code> —
+            <code>npx forespec</code>, and <code>forespec demo</code> gives you
             a graded run in about 20 seconds against a bundled
-            vulnerable-checkout example, rendered through the <em>same</em> code
-            path as a live <code>verify</code> — is on main and ships with the
-            next npm release.
+            vulnerable-checkout example — rendered through the <em>same</em> code
+            path as a live <code>verify</code>, so the demo can never drift from
+            real output. The PR gate runs on a subscription too, which was the
+            last place Forespec still asked for a metered key.
           </p>
         </section>
 

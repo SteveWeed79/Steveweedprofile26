@@ -60,7 +60,7 @@ export const projects: Project[] = [
     href: '/forespec',
     domain: 'npm · Claude Code plugin',
     status: 'Live',
-    tags: ['Node', 'Claude Code plugin', 'Reasoning verifier', 'No API key', 'Dev tooling'],
+    tags: ['Node', 'Claude Code plugin', 'Reasoning verifier', 'No API key', 'v0.2.0'],
     featured: true,
   },
   {
