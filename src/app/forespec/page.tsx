@@ -22,11 +22,11 @@ export const metadata: Metadata = {
 };
 
 const meta = [
-  { label: 'Status', value: 'Early build · v0.1.3', accent: true },
+  { label: 'Status', value: 'Live on npm · v0.1.3', accent: true },
   { label: 'Role', value: 'Solo — design + engineering' },
   { label: 'Engine', value: 'Node · ESM · adapter-based' },
   { label: 'Surface', value: 'CLI · verifier · PR gate' },
-  { label: 'Distribution', value: 'npm · GitHub Action' },
+  { label: 'Distribution', value: 'npm · Claude Code plugin · GitHub Action' },
   { label: 'License', value: 'BUSL-1.1 · source-available' },
 ];
 
@@ -59,10 +59,10 @@ const components = [
 ];
 
 const stats = [
-  { num: '0', label: 'False-greens across 52 critical bad cases' },
-  { num: '≤2.9%', label: 'Rule-of-three 95% upper bound on the miss rate' },
-  { num: '5', label: 'Archetypes composed from one shared library' },
-  { num: '11', label: 'Checkpoint domains in the shared library, authored once' },
+  { num: '0', label: 'False-greens across 152 critical-bad trials on the labelled corpus' },
+  { num: '≤2.0%', label: 'Rule-of-three 95% upper bound on the miss rate — under the ≤6% launch bar' },
+  { num: '133/133', label: 'Outcome agreement across two independent runs — the verdict isn’t a coin flip' },
+  { num: '5', label: 'Archetypes composed from one shared checkpoint library' },
 ];
 
 const archetypes = [
@@ -127,9 +127,9 @@ const next = nextProject('forespec');
 
 const summary = [
   { k: 'Problem', v: <>AI coding tools build what you ask, not the non-obvious thing your kind of app requires — an atomic stock hold, tenant isolation, webhook authenticity. You find out in month three, doing surgery on a live flow.</> },
-  { k: 'Solution', v: <>An engine that surfaces those requirements <strong>before</strong> you build, hands your coding tool a gotcha-aware spec, then grades what actually got built and tracks how each part moves run over run.</> },
-  { k: 'Proof', v: <>Shipping on npm at v0.1.3, with a GitHub Action that gates pull requests.</> },
-  { k: 'Unlocks', v: <>The expensive discoveries land in <strong>week one instead of month three</strong>.</> },
+  { k: 'Solution', v: <>An engine that surfaces those requirements <strong>before</strong> you build, hands your coding tool a gotcha-aware spec, then grades what actually got built and tracks how each part moves run over run. Inside Claude Code it runs as a plugin — <strong>no API key</strong>.</> },
+  { k: 'Proof', v: <><strong>0 false-greens across 152 critical-bad trials</strong> on the labelled corpus — a ≤2.0% miss rate at 95% confidence, both runs agreeing on all 133 cases.</> },
+  { k: 'Outcome', v: <>Public on npm through four releases, and installable inside Claude Code today — so the expensive discoveries land in <strong>week one instead of month three</strong>.</> },
 ];
 
 const toc = [
@@ -266,19 +266,31 @@ export default function ForespecPage() {
           <p className="fs-p" style={{ marginTop: '22px' }}>
             A labeled good/bad fixture corpus measures the reasoning verifier&apos;s
             precision, recall, and — the one that matters — its{' '}
-            <strong>false-green rate</strong>. Real grading runs against a
-            validated bar with an <code>ANTHROPIC_API_KEY</code>; without one it
-            falls back to a deterministic keyword baseline that is honest about
-            <em> not</em> being a grader to trust. &ldquo;Is the verifier
+            <strong>false-green rate</strong>. Both roads to a real grade answer
+            to it: the <code>ANTHROPIC_API_KEY</code> path that runs in CI, and
+            the plugin path that runs on a Claude Code subscription — held to the
+            same fixtures and the same launch gate rather than taken on trust
+            because it is more convenient. &ldquo;Is the verifier
             trustworthy?&rdquo; becomes a number, not a hope.
           </p>
           <p className="fs-p">
-            You don&apos;t have to take that on faith. <code>forespec demo</code>{' '}
-            runs a zero-setup, no-API-key walkthrough of a graded run in about 20
-            seconds — rendered through the <em>same</em> code path as a live{' '}
-            <code>verify</code>, against a bundled vulnerable-checkout example, so
-            the demo can never drift from real output. The full CLI installs in
-            one command: <code>npx forespec</code>.
+            That number is a <strong>floor, not a ceiling</strong>. The fixtures
+            are snippets, so the grader never gets to follow an import into the
+            middleware that supposedly verifies the signature — which is the
+            whole advantage of grading inside an agent that can read the repo.
+            Proving it needs real repositories; that run is in flight, and until
+            it lands this page won&apos;t claim it.
+          </p>
+          <p className="fs-p">
+            You don&apos;t have to take that on faith. Inside Claude Code the
+            plugin installs straight from the repository and grades on the
+            subscription you already pay for — no API key, no second bill to set
+            up. The standalone CLI is one command away with{' '}
+            <code>npx forespec</code>. A zero-setup <code>forespec demo</code> —
+            a graded run in about 20 seconds against a bundled
+            vulnerable-checkout example, rendered through the <em>same</em> code
+            path as a live <code>verify</code> — is on main and ships with the
+            next npm release.
           </p>
         </section>
 
