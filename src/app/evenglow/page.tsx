@@ -32,7 +32,7 @@ const stats = [
   { num: '3,200+', label: 'Tests green across 267 files — typecheck and lint clean on a fresh checkout' },
   { num: '56', label: 'orgId-leading indexes over 30 collections, with no escape hatch to bypass them' },
   { num: '67', label: 'Screens, 61 of them directly exercised by the screen suite' },
-  { num: '1', label: 'TODO comment in 70,000+ lines of source' },
+  { num: '1', label: 'TODO comment in 72,000+ lines of source' },
 ];
 
 const pipeline = [

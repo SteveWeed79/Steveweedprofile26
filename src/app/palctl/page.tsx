@@ -100,7 +100,7 @@ const layers = [
   { name: 'Desktop', desc: 'PySide6 (Qt) — dashboard, players, console, a typed settings editor over the OptionSettings blob, and a first-run wizard; console work on worker threads.', badge: 'PySide6' },
   { name: 'REST / HTTP', desc: 'httpx client for the Palworld REST API (FPS, frame time, per-player data); aiohttp serves the token-gated 127.0.0.1 control API and the web dashboard.', badge: 'httpx + aiohttp' },
   { name: 'Data', desc: 'SQLite for session/playtime and metrics history, so the graphs survive a daemon restart; a hand-rolled ini parser that preserves unknown keys from future patches.', badge: 'SQLite' },
-  { name: 'Discord', desc: 'A self-hosted discord.py bot — 13 slash commands and event notifications, queue-backed sends, and first-connect retry.', badge: 'discord.py' },
+  { name: 'Discord', desc: 'A self-hosted discord.py bot — 17 slash commands and event notifications, queue-backed sends, and first-connect retry.', badge: 'discord.py' },
   { name: 'Packaging', desc: 'PyInstaller builds the binaries; Inno Setup produces the installer and a portable zip; secrets go to Windows Credential Manager via DPAPI, never a config file.', badge: 'PyInstaller + Inno Setup' },
   { name: 'CI / Quality', desc: 'A GitHub Actions matrix (Windows + Linux × Python 3.11–3.13), ruff, an import-smoke job under offscreen Qt, and the test suite on every push.', badge: 'GitHub Actions · ruff' },
 ];
