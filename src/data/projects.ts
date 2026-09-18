@@ -55,8 +55,8 @@ export const projects: Project[] = [
   {
     slug: 'forespec',
     name: 'Forespec',
-    desc: 'A standalone, tool-agnostic engine that forces domain foresight before you build a feature, then verifies what actually got built against it — so the expensive discoveries surface in week one, not month three. Inside Claude Code it runs as a plugin, grading on the subscription you already pay for.',
-    summary: 'An engine that forces domain foresight before you build, then verifies what got built against it.',
+    desc: 'Catches what your AI coder didn’t know to ask — the atomic stock hold, the tenant isolation, the webhook signature. 42 checkpoints across five app archetypes, surfaced before you build and graded against the code after. Runs inside Claude Code on the subscription you already pay for, with no API key.',
+    summary: 'Catches what your AI coder didn’t know to ask — 42 checkpoints, surfaced before you build and graded after.',
     href: '/forespec',
     domain: 'npm · Claude Code plugin',
     status: 'Live',

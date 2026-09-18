@@ -10,12 +10,12 @@ import { nextProject } from '@/data/projects';
 export const metadata: Metadata = {
   title: 'Forespec — foresight before you build, verified after',
   description:
-    'Forespec is a standalone, tool-agnostic engine that forces domain foresight before you build a feature, then verifies what actually got built against it. Case study: architecture, the reasoning verifier, the validation bar, and the build order.',
+'Forespec catches what your AI coder didn’t know to ask — the atomic stock hold, the tenant isolation, the webhook signature. 42 checkpoints surfaced before you build and graded against the code after, running inside Claude Code with no API key. Case study: the architecture, the reasoning verifier, its validation bar, and what a hand-audited run across eight real OSS repositories found.',
   alternates: { canonical: '/forespec' },
   openGraph: {
     title: 'Forespec — a verification engine for the build loop',
     description:
-      'Forces domain foresight before a feature, then verifies what got built against it — validated to 0 false-greens on 52 critical bad cases.',
+      'Catches what your AI coder didn’t know to ask — 42 checkpoints, surfaced before you build and graded after. 0 false-greens across 152 critical-bad trials, and 147 verdicts across eight real OSS repositories, every one citing file:line.',
     url: '/forespec',
     type: 'article',
   },
@@ -25,6 +25,7 @@ const meta = [
   { label: 'Status', value: 'Live on npm · v0.2.0', accent: true },
   { label: 'Role', value: 'Solo — design + engineering' },
   { label: 'Engine', value: 'Node · ESM · adapter-based' },
+  { label: 'Standard', value: '42 checkpoints · 5 archetypes' },
   { label: 'Surface', value: 'CLI · verifier · PR gate' },
   { label: 'Distribution', value: 'npm · Claude Code plugin · GitHub Action' },
   { label: 'License', value: 'BUSL-1.1 · source-available' },
@@ -155,11 +156,12 @@ export default function ForespecPage() {
           <p className="fs-eyebrow">Case Study · Developer Tooling</p>
           <h1 className="fs-title">Forespec</h1>
           <p className="fs-lede">
-            A standalone, tool-agnostic engine that forces domain{' '}
-            <strong>foresight before</strong> you build a feature, then{' '}
-            <strong>verifies</strong> what actually got built against that
-            foresight — so the expensive discoveries surface in week one, not
-            month three.
+            Catches <strong>what your AI coder didn&apos;t know to ask</strong>{' '}
+            — the atomic stock hold, the tenant isolation, the webhook
+            signature. 42 checkpoints your kind of app actually requires,
+            surfaced <strong>before</strong> you build and{' '}
+            <strong>graded against the code</strong> after — so the expensive
+            discoveries surface in week one, not month three.
           </p>
 
           <div className="fs-metabar">
