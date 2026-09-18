@@ -3,6 +3,8 @@ import Link from 'next/link';
 import CaseHeader from '@/components/CaseHeader';
 import Footer from '@/components/Footer';
 import ScrollFX from '@/components/ScrollFX';
+import CaseSummary from '@/components/CaseSummary';
+import CaseToc from '@/components/CaseToc';
 import { nextProject } from '@/data/projects';
 
 export const metadata: Metadata = {
@@ -111,6 +113,24 @@ const limits = [
 
 const next = nextProject('anima');
 
+const summary = [
+  { k: 'Problem', v: <>The target is a closed, shipping game binary with no source, no documentation and no prior art — and the feature being added <strong>did not exist anywhere in it to copy</strong>: 0 of 2,466 items carried an element.</> },
+  { k: 'Solution', v: <>Reverse-engineer the damage pipeline one confirmed hook at a time, and enforce <strong>“no source, no code”</strong> with a CI gate that fails the build on any internal name not traceable to a datamine of my own build.</> },
+  { k: 'Proof', v: <>158 checks that run with the game not installed, behind 10 CI gates — and every shipped capability confirmed in the live game before it counted.</> },
+  { k: 'Unlocks', v: <>A feature the engine was never built to have, added <strong>without one guessed name shipping</strong>.</> },
+];
+
+const toc = [
+  { id: 'the-actual-job', label: 'The actual job' },
+  { id: 'method', label: 'The method' },
+  { id: 'what-that-bought', label: 'What that bought' },
+  { id: 'the-hard-parts', label: 'The hard parts' },
+  { id: 'by-the-numbers', label: 'By the numbers' },
+  { id: 'status', label: 'Status you can check' },
+  { id: 'under-the-hood', label: 'Under the hood' },
+  { id: 'what-it-won-t', label: 'What it won’t do' },
+];
+
 export default function AnimaPage() {
   return (
     <>
@@ -154,9 +174,13 @@ export default function AnimaPage() {
           </div>
         </section>
 
-        <section className="fs-section" data-reveal>
-          <p className="fs-section__label">The actual job</p>
-          <h2 className="fs-h2">There was no tutorial for this, because nobody had done it.</h2>
+        <CaseSummary rows={summary} />
+
+        <CaseToc items={toc} />
+
+        <section className="fs-section" id="the-actual-job" data-reveal>
+          <h2 className="fs-section__label">The actual job</h2>
+          <h3 className="fs-h2">There was no tutorial for this, because nobody had done it.</h3>
           <p className="fs-p">
             Most work has a path someone already walked. This had none. The
             target is a <strong>closed binary</strong> with no source, no
@@ -178,8 +202,8 @@ export default function AnimaPage() {
         </section>
 
         <section className="fs-section" id="method" data-reveal>
-          <p className="fs-section__label">The method</p>
-          <h2 className="fs-h2">No source, no code — enforced by the build, not by willpower.</h2>
+          <h2 className="fs-section__label">The method</h2>
+          <h3 className="fs-h2">No source, no code — enforced by the build, not by willpower.</h3>
           <p className="fs-p">
             Work like this fails in one specific way: the codebase fills up
             with names that <em>look</em> right. A plausible guess runs, does
@@ -211,9 +235,9 @@ export default function AnimaPage() {
           </p>
         </section>
 
-        <section className="fs-section" data-reveal>
-          <p className="fs-section__label">What that bought</p>
-          <h2 className="fs-h2">Four decisions, each one confirmed in the running game before it counted.</h2>
+        <section className="fs-section" id="what-that-bought" data-reveal>
+          <h2 className="fs-section__label">What that bought</h2>
+          <h3 className="fs-h2">Four decisions, each one confirmed in the running game before it counted.</h3>
           <div className="fs-grid" style={{ marginTop: '26px' }}>
             {findings.map((c) => (
               <div key={c.title} className="fs-card">
@@ -225,9 +249,9 @@ export default function AnimaPage() {
           </div>
         </section>
 
-        <section className="fs-section" data-reveal>
-          <p className="fs-section__label">The hard parts</p>
-          <h2 className="fs-h2">Most of the work was deciding what not to trust — including my own code.</h2>
+        <section className="fs-section" id="the-hard-parts" data-reveal>
+          <h2 className="fs-section__label">The hard parts</h2>
+          <h3 className="fs-h2">Most of the work was deciding what not to trust — including my own code.</h3>
           <div className="fs-principles">
             {hardParts.map((p) => (
               <div key={p.t} className="fs-principle">
@@ -238,8 +262,8 @@ export default function AnimaPage() {
           </div>
         </section>
 
-        <section className="fs-section" data-reveal>
-          <p className="fs-section__label">By the numbers</p>
+        <section className="fs-section" id="by-the-numbers" data-reveal>
+          <h2 className="fs-section__label">By the numbers</h2>
           <div className="fs-stats">
             {stats.map((s) => (
               <div key={s.label} className="fs-stat">
@@ -251,8 +275,8 @@ export default function AnimaPage() {
         </section>
 
         <section className="fs-section" id="status" data-reveal>
-          <p className="fs-section__label">Status you can check</p>
-          <h2 className="fs-h2">Two buckets, and I don&apos;t move things up early.</h2>
+          <h2 className="fs-section__label">Status you can check</h2>
+          <h3 className="fs-h2">Two buckets, and I don&apos;t move things up early.</h3>
           <p className="fs-p">
             Every capability in this project sits in one of exactly two states,
             and the distinction is enforced in the docs the same way the naming
@@ -287,9 +311,9 @@ export default function AnimaPage() {
           </p>
         </section>
 
-        <section className="fs-section" data-reveal>
-          <p className="fs-section__label">Under the hood</p>
-          <h2 className="fs-h2">The stack, by layer.</h2>
+        <section className="fs-section" id="under-the-hood" data-reveal>
+          <h2 className="fs-section__label">Under the hood</h2>
+          <h3 className="fs-h2">The stack, by layer.</h3>
           {layers.map((l) => (
             <div key={l.name} className="fs-arch-row">
               <span className="fs-arch-row__name">{l.name}</span>
@@ -299,9 +323,9 @@ export default function AnimaPage() {
           ))}
         </section>
 
-        <section className="fs-section" data-reveal>
-          <p className="fs-section__label">What it won&apos;t do — and what I won&apos;t claim</p>
-          <h2 className="fs-h2">The limits are on the page because you&apos;d find them anyway.</h2>
+        <section className="fs-section" id="what-it-won-t" data-reveal>
+          <h2 className="fs-section__label">What it won&apos;t do — and what I won&apos;t claim</h2>
+          <h3 className="fs-h2">The limits are on the page because you&apos;d find them anyway.</h3>
           <div className="fs-principles">
             {limits.map((p) => (
               <div key={p.t} className="fs-principle">

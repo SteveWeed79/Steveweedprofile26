@@ -8,7 +8,7 @@ const facts = [
 export default function About() {
   return (
     <section className="section" id="about">
-      <p className="section__label">About</p>
+      <h2 className="section__label">About</h2>
       <div className="about__grid" data-reveal>
         <div>
           <p className="about__lead">

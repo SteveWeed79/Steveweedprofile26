@@ -7,7 +7,7 @@ export default function Projects() {
 
   return (
     <section className="section" id="work">
-      <p className="section__label">Work</p>
+      <h2 className="section__label">Work</h2>
       <ProjectList items={featuredProjects} />
       {rest > 0 && (
         <Link href="/work" className="projects__more" data-reveal>

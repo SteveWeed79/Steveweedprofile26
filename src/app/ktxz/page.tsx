@@ -3,6 +3,8 @@ import Link from 'next/link';
 import CaseHeader from '@/components/CaseHeader';
 import Footer from '@/components/Footer';
 import ScrollFX from '@/components/ScrollFX';
+import CaseSummary from '@/components/CaseSummary';
+import CaseToc from '@/components/CaseToc';
 import { nextProject } from '@/data/projects';
 
 export const metadata: Metadata = {
@@ -72,6 +74,22 @@ const layers = [
 
 const next = nextProject('ktxz');
 
+const summary = [
+  { k: 'Problem', v: <>Selling cards across eight games means eight catalogues, several pricing sources, and stock two buyers can race for at the moment of checkout.</> },
+  { k: 'Solution', v: <>One storefront and one admin operations platform over a single catalogue — search across every game, <strong>TOCTOU-safe stock reservation</strong>, and orders created only by a verified, idempotent Stripe webhook.</> },
+  { k: 'Proof', v: <>2,800+ tests across 224 files, plus integration, end-to-end and mutation suites.</> },
+  { k: 'Outcome', v: <><strong>Live at ktxzenterprises.com</strong>, running the business it was built for.</> },
+];
+
+const toc = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'storefront', label: 'Storefront' },
+  { id: 'admin-operations', label: 'Admin operations' },
+  { id: 'hard-parts', label: 'The hard parts' },
+  { id: 'by-the-numbers', label: 'By the numbers' },
+  { id: 'under-the-hood', label: 'Under the hood' },
+];
+
 export default function KtxzPage() {
   return (
     <>
@@ -112,9 +130,13 @@ export default function KtxzPage() {
           </div>
         </section>
 
-        <section className="fs-section" data-reveal>
-          <p className="fs-section__label">Overview</p>
-          <h2 className="fs-h2">Two products in one repo: a storefront customers love, and the operations platform that runs it.</h2>
+        <CaseSummary rows={summary} />
+
+        <CaseToc items={toc} />
+
+        <section className="fs-section" id="overview" data-reveal>
+          <h2 className="fs-section__label">Overview</h2>
+          <h3 className="fs-h2">Two products in one repo: a storefront customers love, and the operations platform that runs it.</h3>
           <p className="fs-p">
             Card data and market pricing span{' '}
             <strong>Pokémon, Magic: The Gathering, Disney Lorcana, One Piece,
@@ -130,9 +152,9 @@ export default function KtxzPage() {
           </p>
         </section>
 
-        <section className="fs-section" data-reveal>
-          <p className="fs-section__label">Storefront</p>
-          <h2 className="fs-h2">Everything a buyer touches.</h2>
+        <section className="fs-section" id="storefront" data-reveal>
+          <h2 className="fs-section__label">Storefront</h2>
+          <h3 className="fs-h2">Everything a buyer touches.</h3>
           <div className="fs-grid">
             {storefront.map((c) => (
               <div key={c.title} className="fs-card">
@@ -144,9 +166,9 @@ export default function KtxzPage() {
           </div>
         </section>
 
-        <section className="fs-section" data-reveal>
-          <p className="fs-section__label">Admin operations</p>
-          <h2 className="fs-h2">Everything the store runs on.</h2>
+        <section className="fs-section" id="admin-operations" data-reveal>
+          <h2 className="fs-section__label">Admin operations</h2>
+          <h3 className="fs-h2">Everything the store runs on.</h3>
           <div className="fs-grid">
             {admin.map((c) => (
               <div key={c.title} className="fs-card">
@@ -159,8 +181,8 @@ export default function KtxzPage() {
         </section>
 
         <section className="fs-section" id="hard-parts" data-reveal>
-          <p className="fs-section__label">The hard parts</p>
-          <h2 className="fs-h2">Where an e-commerce build actually gets dangerous.</h2>
+          <h2 className="fs-section__label">The hard parts</h2>
+          <h3 className="fs-h2">Where an e-commerce build actually gets dangerous.</h3>
           <div className="fs-principles">
             {hardParts.map((p) => (
               <div key={p.t} className="fs-principle">
@@ -171,8 +193,8 @@ export default function KtxzPage() {
           </div>
         </section>
 
-        <section className="fs-section" data-reveal>
-          <p className="fs-section__label">By the numbers</p>
+        <section className="fs-section" id="by-the-numbers" data-reveal>
+          <h2 className="fs-section__label">By the numbers</h2>
           <div className="fs-stats">
             {stats.map((s) => (
               <div key={s.label} className="fs-stat">
@@ -183,9 +205,9 @@ export default function KtxzPage() {
           </div>
         </section>
 
-        <section className="fs-section" data-reveal>
-          <p className="fs-section__label">Under the hood</p>
-          <h2 className="fs-h2">The stack, by layer.</h2>
+        <section className="fs-section" id="under-the-hood" data-reveal>
+          <h2 className="fs-section__label">Under the hood</h2>
+          <h3 className="fs-h2">The stack, by layer.</h3>
           {layers.map((l) => (
             <div key={l.name} className="fs-arch-row">
               <span className="fs-arch-row__name">{l.name}</span>

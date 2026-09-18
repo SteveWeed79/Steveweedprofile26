@@ -3,28 +3,31 @@ import Link from 'next/link';
 import CaseHeader from '@/components/CaseHeader';
 import Footer from '@/components/Footer';
 import ScrollFX from '@/components/ScrollFX';
+import CaseSummary from '@/components/CaseSummary';
+import CaseToc from '@/components/CaseToc';
 import { nextProject } from '@/data/projects';
 
 export const metadata: Metadata = {
   title: 'Forespec — foresight before you build, verified after',
   description:
-    'Forespec is a standalone, tool-agnostic engine that forces domain foresight before you build a feature, then verifies what actually got built against it. Case study: architecture, the reasoning verifier, the validation bar, and the build order.',
+'Forespec catches what your AI coder didn’t know to ask — the atomic stock hold, the tenant isolation, the webhook signature. 42 checkpoints surfaced before you build and graded against the code after, running inside Claude Code with no API key. Case study: the architecture, the reasoning verifier, its validation bar, and what a hand-audited run across eight real OSS repositories found.',
   alternates: { canonical: '/forespec' },
   openGraph: {
     title: 'Forespec — a verification engine for the build loop',
     description:
-      'Forces domain foresight before a feature, then verifies what got built against it — validated to 0 false-greens on 52 critical bad cases.',
+      'Catches what your AI coder didn’t know to ask — 42 checkpoints, surfaced before you build and graded after. 0 false-greens across 152 critical-bad trials, and 147 verdicts across eight real OSS repositories, every one citing file:line.',
     url: '/forespec',
     type: 'article',
   },
 };
 
 const meta = [
-  { label: 'Status', value: 'Early build · v0.1.3', accent: true },
+  { label: 'Status', value: 'Live on npm · v0.2.0', accent: true },
   { label: 'Role', value: 'Solo — design + engineering' },
   { label: 'Engine', value: 'Node · ESM · adapter-based' },
+  { label: 'Standard', value: '42 checkpoints · 5 archetypes' },
   { label: 'Surface', value: 'CLI · verifier · PR gate' },
-  { label: 'Distribution', value: 'npm · GitHub Action' },
+  { label: 'Distribution', value: 'npm · Claude Code plugin · GitHub Action' },
   { label: 'License', value: 'BUSL-1.1 · source-available' },
 ];
 
@@ -57,10 +60,10 @@ const components = [
 ];
 
 const stats = [
-  { num: '0', label: 'False-greens across 52 critical bad cases' },
-  { num: '≤2.9%', label: 'Rule-of-three 95% upper bound on the miss rate' },
-  { num: '5', label: 'Archetypes composed from one shared library' },
-  { num: '11', label: 'Checkpoint domains in the shared library, authored once' },
+  { num: '0', label: 'False-greens across 152 critical-bad trials on the labelled corpus' },
+  { num: '≤2.0%', label: 'Rule-of-three 95% upper bound on the miss rate — under the ≤6% launch bar' },
+  { num: '133/133', label: 'Outcome agreement across two independent runs — the verdict isn’t a coin flip' },
+  { num: '147', label: 'Verdicts across 8 real OSS repositories, every one citing file:line — 0 fabrications among the findings checked by hand' },
 ];
 
 const archetypes = [
@@ -123,6 +126,23 @@ const phases = [
 
 const next = nextProject('forespec');
 
+const summary = [
+  { k: 'Problem', v: <>AI coding tools build what you ask, not the non-obvious thing your kind of app requires — an atomic stock hold, tenant isolation, webhook authenticity. You find out in month three, doing surgery on a live flow.</> },
+  { k: 'Solution', v: <>An engine that surfaces those requirements <strong>before</strong> you build, hands your coding tool a gotcha-aware spec, then grades what actually got built and tracks how each part moves run over run. Inside Claude Code it runs as a plugin — <strong>no API key</strong>.</> },
+  { k: 'Proof', v: <><strong>0 false-greens across 152 critical-bad trials</strong> on the labelled corpus — a ≤2.0% miss rate at 95% confidence, both runs agreeing on all 133 cases.</> },
+  { k: 'Outcome', v: <>Public on npm at v0.2.0 and installable inside Claude Code today — so the expensive discoveries land in <strong>week one instead of month three</strong>.</> },
+];
+
+const toc = [
+  { id: 'the-problem', label: 'The problem' },
+  { id: 'the-loop-it-keeps', label: 'The loop it keeps live' },
+  { id: 'architecture', label: 'Architecture' },
+  { id: 'does-the-verifier-tell', label: 'Does the verifier tell the truth?' },
+  { id: 'a-composable-standard', label: 'A composable standard' },
+  { id: 'principles-true-from-commit', label: 'Principles' },
+  { id: 'build-order-verifier-first', label: 'Build order' },
+];
+
 export default function ForespecPage() {
   return (
     <>
@@ -136,11 +156,12 @@ export default function ForespecPage() {
           <p className="fs-eyebrow">Case Study · Developer Tooling</p>
           <h1 className="fs-title">Forespec</h1>
           <p className="fs-lede">
-            A standalone, tool-agnostic engine that forces domain{' '}
-            <strong>foresight before</strong> you build a feature, then{' '}
-            <strong>verifies</strong> what actually got built against that
-            foresight — so the expensive discoveries surface in week one, not
-            month three.
+            Catches <strong>what your AI coder didn&apos;t know to ask</strong>{' '}
+            — the atomic stock hold, the tenant isolation, the webhook
+            signature. 42 checkpoints your kind of app actually requires,
+            surfaced <strong>before</strong> you build and{' '}
+            <strong>graded against the code</strong> after — so the expensive
+            discoveries surface in week one, not month three.
           </p>
 
           <div className="fs-metabar">
@@ -165,9 +186,13 @@ export default function ForespecPage() {
           </div>
         </section>
 
-        <section className="fs-section" data-reveal>
-          <p className="fs-section__label">The problem</p>
-          <h2 className="fs-h2">The failure isn&apos;t bad code. It&apos;s foresight arriving too late.</h2>
+        <CaseSummary rows={summary} />
+
+        <CaseToc items={toc} />
+
+        <section className="fs-section" id="the-problem" data-reveal>
+          <h2 className="fs-section__label">The problem</h2>
+          <h3 className="fs-h2">The failure isn&apos;t bad code. It&apos;s foresight arriving too late.</h3>
           <p className="fs-p">
             AI coding tools answer the literal ask. Nothing in the moment forces a
             stop to interrogate the non-obvious requirements of a feature. Depth is
@@ -190,9 +215,9 @@ export default function ForespecPage() {
           </div>
         </section>
 
-        <section className="fs-section" data-reveal>
-          <p className="fs-section__label">The loop it keeps live</p>
-          <h2 className="fs-h2">Point → build → verify → remember — and the foresight stays alive the whole way.</h2>
+        <section className="fs-section" id="the-loop-it-keeps" data-reveal>
+          <h2 className="fs-section__label">The loop it keeps live</h2>
+          <h3 className="fs-h2">Point → build → verify → remember — and the foresight stays alive the whole way.</h3>
           <div className="fs-loop">
             {[
               { n: '01', name: 'Point', desc: 'Interrogate the domain and emit a gotcha-aware spec — the decide-first questions + acceptance criteria, most-foundational pieces first.' },
@@ -216,8 +241,8 @@ export default function ForespecPage() {
         </section>
 
         <section className="fs-section" id="architecture" data-reveal>
-          <p className="fs-section__label">Architecture</p>
-          <h2 className="fs-h2">Five components, one spine.</h2>
+          <h2 className="fs-section__label">Architecture</h2>
+          <h3 className="fs-h2">Five components, one spine.</h3>
           <div className="fs-grid">
             {components.map((c) => (
               <div key={c.k} className="fs-card">
@@ -229,9 +254,9 @@ export default function ForespecPage() {
           </div>
         </section>
 
-        <section className="fs-section" data-reveal>
-          <p className="fs-section__label">Does the verifier tell the truth?</p>
-          <h2 className="fs-h2">The whole tool rests on one number: how often the grader lets a bad thing through.</h2>
+        <section className="fs-section" id="does-the-verifier-tell" data-reveal>
+          <h2 className="fs-section__label">Does the verifier tell the truth?</h2>
+          <h3 className="fs-h2">The whole tool rests on one number: how often the grader lets a bad thing through.</h3>
           <div className="fs-stats">
             {stats.map((s) => (
               <div key={s.label} className="fs-stat">
@@ -243,25 +268,54 @@ export default function ForespecPage() {
           <p className="fs-p" style={{ marginTop: '22px' }}>
             A labeled good/bad fixture corpus measures the reasoning verifier&apos;s
             precision, recall, and — the one that matters — its{' '}
-            <strong>false-green rate</strong>. Real grading runs against a
-            validated bar with an <code>ANTHROPIC_API_KEY</code>; without one it
-            falls back to a deterministic keyword baseline that is honest about
-            <em> not</em> being a grader to trust. &ldquo;Is the verifier
+            <strong>false-green rate</strong>. Both roads to a real grade answer
+            to it: the <code>ANTHROPIC_API_KEY</code> path that runs in CI, and
+            the plugin path that runs on a Claude Code subscription — held to the
+            same fixtures and the same launch gate rather than taken on trust
+            because it is more convenient. &ldquo;Is the verifier
             trustworthy?&rdquo; becomes a number, not a hope.
           </p>
           <p className="fs-p">
-            You don&apos;t have to take that on faith. <code>forespec demo</code>{' '}
-            runs a zero-setup, no-API-key walkthrough of a graded run in about 20
-            seconds — rendered through the <em>same</em> code path as a live{' '}
-            <code>verify</code>, against a bundled vulnerable-checkout example, so
-            the demo can never drift from real output. The full CLI installs in
-            one command: <code>npx forespec</code>.
+            But a corpus of snippets can&apos;t exercise the thing the plugin
+            exists for: grep, read, and follow an import into the code that
+            supposedly holds the guard. So the grader was pointed at{' '}
+            <strong>eight public repositories it had never seen</strong>, and
+            every finding was checked against the source by hand —{' '}
+            <strong>147 verdicts, not one of them without a{' '}
+            <code>file:line</code> citation, and no fabrications</strong> among
+            those audited. It came back clean on the clean repos, which is the
+            property that makes the rest mean anything. The expected weak spot
+            didn&apos;t appear either: a 4,332-file Python codebase, where the
+            JS/TS-shaped keyword selector should have degraded, graded best of
+            the whole run — because the agent greps the repository rather than
+            leaning on the selector.
+          </p>
+          <p className="fs-p">
+            That ledger is a hand-audited field report rather than a second
+            error rate, and it says so. It also records the{' '}
+            <strong>defects the run found in Forespec itself</strong> — a
+            reporting bug that made a good run look like a failed one, and an
+            archetype detector that reads a document-signing SaaS as an AI app
+            on the strength of a single dependency. A proof run that produced
+            only good news would not have been a proof run.
+          </p>
+          <p className="fs-p">
+            You don&apos;t have to take that on faith. Inside Claude Code the
+            plugin installs straight from the repository and grades on the
+            subscription you already pay for — no API key, no second bill to set
+            up. The standalone CLI is one command away with{' '}
+            <code>npx forespec</code>, and <code>forespec demo</code> gives you
+            a graded run in about 20 seconds against a bundled
+            vulnerable-checkout example — rendered through the <em>same</em> code
+            path as a live <code>verify</code>, so the demo can never drift from
+            real output. The PR gate runs on a subscription too, which was the
+            last place Forespec still asked for a metered key.
           </p>
         </section>
 
-        <section className="fs-section" data-reveal>
-          <p className="fs-section__label">A composable standard</p>
-          <h2 className="fs-h2">One shared checkpoint library. Every archetype composes it.</h2>
+        <section className="fs-section" id="a-composable-standard" data-reveal>
+          <h2 className="fs-section__label">A composable standard</h2>
+          <h3 className="fs-h2">One shared checkpoint library. Every archetype composes it.</h3>
           {archetypes.map((a) => (
             <div key={a.name} className="fs-arch-row">
               <span className="fs-arch-row__name">{a.name}</span>
@@ -278,8 +332,8 @@ export default function ForespecPage() {
           </p>
         </section>
 
-        <section className="fs-section" data-reveal>
-          <p className="fs-section__label">Principles — true from commit #1</p>
+        <section className="fs-section" id="principles-true-from-commit" data-reveal>
+          <h2 className="fs-section__label">Principles — true from commit #1</h2>
           <div className="fs-principles">
             {principles.map((p) => (
               <div key={p.t} className="fs-principle">
@@ -290,9 +344,9 @@ export default function ForespecPage() {
           </div>
         </section>
 
-        <section className="fs-section" data-reveal>
-          <p className="fs-section__label">Build order — verifier first, shell last</p>
-          <h2 className="fs-h2">Each phase ships real and stands alone. The pearl gets proven before the shell gets built.</h2>
+        <section className="fs-section" id="build-order-verifier-first" data-reveal>
+          <h2 className="fs-section__label">Build order — verifier first, shell last</h2>
+          <h3 className="fs-h2">Each phase ships real and stands alone. The pearl gets proven before the shell gets built.</h3>
           <div className="fs-phases">
             {phases.map((p) => {
               const mod = p.s === 'Shipped' ? ' fs-phase--now' : '';

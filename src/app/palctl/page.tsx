@@ -3,6 +3,8 @@ import Link from 'next/link';
 import CaseHeader from '@/components/CaseHeader';
 import Footer from '@/components/Footer';
 import ScrollFX from '@/components/ScrollFX';
+import CaseSummary from '@/components/CaseSummary';
+import CaseToc from '@/components/CaseToc';
 import { nextProject } from '@/data/projects';
 
 export const metadata: Metadata = {
@@ -100,7 +102,7 @@ const layers = [
   { name: 'Desktop', desc: 'PySide6 (Qt) — dashboard, players, console, a typed settings editor over the OptionSettings blob, and a first-run wizard; console work on worker threads.', badge: 'PySide6' },
   { name: 'REST / HTTP', desc: 'httpx client for the Palworld REST API (FPS, frame time, per-player data); aiohttp serves the token-gated 127.0.0.1 control API and the web dashboard.', badge: 'httpx + aiohttp' },
   { name: 'Data', desc: 'SQLite for session/playtime and metrics history, so the graphs survive a daemon restart; a hand-rolled ini parser that preserves unknown keys from future patches.', badge: 'SQLite' },
-  { name: 'Discord', desc: 'A self-hosted discord.py bot — 13 slash commands and event notifications, queue-backed sends, and first-connect retry.', badge: 'discord.py' },
+  { name: 'Discord', desc: 'A self-hosted discord.py bot — 17 slash commands and event notifications, queue-backed sends, and first-connect retry.', badge: 'discord.py' },
   { name: 'Packaging', desc: 'PyInstaller builds the binaries; Inno Setup produces the installer and a portable zip; secrets go to Windows Credential Manager via DPAPI, never a config file.', badge: 'PyInstaller + Inno Setup' },
   { name: 'CI / Quality', desc: 'A GitHub Actions matrix (Windows + Linux × Python 3.11–3.13), ruff, an import-smoke job under offscreen Qt, and the test suite on every push.', badge: 'GitHub Actions · ruff' },
 ];
@@ -121,6 +123,22 @@ const limits = [
 ];
 
 const next = nextProject('palctl');
+
+const summary = [
+  { k: 'Problem', v: <>Palworld’s dedicated server leaks memory. The universal advice is to restart on a timer, which either kicks players for nothing or leaves the server unplayable for hours before the timer fires.</> },
+  { k: 'Solution', v: <>Read the server process’s <strong>real memory off the OS</strong>, forecast the leak curve, and restart early at a moment the server happens to be empty — behind one daemon serving a desktop GUI, a CLI, a web dashboard and a Discord bot.</> },
+  { k: 'Proof', v: <>1,000+ tests green on a Windows + Linux matrix across Python 3.11–3.13.</> },
+  { k: 'Outcome', v: <><strong>Released and in use at v1.2.8.3</strong>, on Windows and headless Linux.</> },
+];
+
+const toc = [
+  { id: 'why-it-exists', label: 'Why it exists' },
+  { id: 'architecture', label: 'Architecture' },
+  { id: 'hard-parts', label: 'The hard parts' },
+  { id: 'by-the-numbers', label: 'By the numbers' },
+  { id: 'under-the-hood', label: 'Under the hood' },
+  { id: 'what-it-won-t', label: 'What it won’t do' },
+];
 
 export default function PalctlPage() {
   return (
@@ -165,9 +183,13 @@ export default function PalctlPage() {
           </div>
         </section>
 
-        <section className="fs-section" data-reveal>
-          <p className="fs-section__label">Why it exists</p>
-          <h2 className="fs-h2">There are good Palworld managers. This one is different in three specific ways.</h2>
+        <CaseSummary rows={summary} />
+
+        <CaseToc items={toc} />
+
+        <section className="fs-section" id="why-it-exists" data-reveal>
+          <h2 className="fs-section__label">Why it exists</h2>
+          <h3 className="fs-h2">There are good Palworld managers. This one is different in three specific ways.</h3>
           <p className="fs-p">
             Every other Windows GUI drives <strong>RCON</strong>, which
             Pocketpair has deprecated. palctl uses the recommended{' '}
@@ -195,8 +217,8 @@ export default function PalctlPage() {
         </section>
 
         <section className="fs-section" id="architecture" data-reveal>
-          <p className="fs-section__label">Architecture</p>
-          <h2 className="fs-h2">Two processes, five surfaces, one shared core.</h2>
+          <h2 className="fs-section__label">Architecture</h2>
+          <h3 className="fs-h2">Two processes, five surfaces, one shared core.</h3>
           <p className="fs-p">
             The split is deliberate. The <strong>daemon</strong> is the manager —
             wrapped in a Windows service or a systemd unit, it survives reboots
@@ -218,8 +240,8 @@ export default function PalctlPage() {
         </section>
 
         <section className="fs-section" id="hard-parts" data-reveal>
-          <p className="fs-section__label">The hard parts</p>
-          <h2 className="fs-h2">The recurring theme is restraint: an auto-restarter that misfires is worse than none.</h2>
+          <h2 className="fs-section__label">The hard parts</h2>
+          <h3 className="fs-h2">The recurring theme is restraint: an auto-restarter that misfires is worse than none.</h3>
           <div className="fs-principles">
             {hardParts.map((p) => (
               <div key={p.t} className="fs-principle">
@@ -230,8 +252,8 @@ export default function PalctlPage() {
           </div>
         </section>
 
-        <section className="fs-section" data-reveal>
-          <p className="fs-section__label">By the numbers</p>
+        <section className="fs-section" id="by-the-numbers" data-reveal>
+          <h2 className="fs-section__label">By the numbers</h2>
           <div className="fs-stats">
             {stats.map((s) => (
               <div key={s.label} className="fs-stat">
@@ -242,9 +264,9 @@ export default function PalctlPage() {
           </div>
         </section>
 
-        <section className="fs-section" data-reveal>
-          <p className="fs-section__label">Under the hood</p>
-          <h2 className="fs-h2">The stack, by layer.</h2>
+        <section className="fs-section" id="under-the-hood" data-reveal>
+          <h2 className="fs-section__label">Under the hood</h2>
+          <h3 className="fs-h2">The stack, by layer.</h3>
           {layers.map((l) => (
             <div key={l.name} className="fs-arch-row">
               <span className="fs-arch-row__name">{l.name}</span>
@@ -254,9 +276,9 @@ export default function PalctlPage() {
           ))}
         </section>
 
-        <section className="fs-section" data-reveal>
-          <p className="fs-section__label">What it won&apos;t do — and can&apos;t</p>
-          <h2 className="fs-h2">Scoped to what the API actually supports, and honest about the rest.</h2>
+        <section className="fs-section" id="what-it-won-t" data-reveal>
+          <h2 className="fs-section__label">What it won&apos;t do — and can&apos;t</h2>
+          <h3 className="fs-h2">Scoped to what the API actually supports, and honest about the rest.</h3>
           <div className="fs-principles">
             {limits.map((p) => (
               <div key={p.t} className="fs-principle">
